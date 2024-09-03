@@ -7,6 +7,7 @@ const getInteriorExteriorsDb = async () => {
 
 const getInteriorExteriorDb = async (id) => {
     let [[data]] =  await pool.query('SELECT * FROM interiorExterior WHERE interiorExteriorID = ?',[id])
+    return data
 }
 
 
@@ -16,6 +17,20 @@ const addInteriorExteriorDb = async ( name, material, color, compatibleCarMake, 
     )   
     return data
 }
+// interiorExteriorID, name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category
+
+const updateInteriorExteriorDb = async (name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category, id) => {
+    try {
+        await pool.query(
+            `UPDATE interiorExterior SET name=?, material=?, color=?, compatibleCarMake=?, price=?, stockQuantity=?, warrantyPeriod=?, description=?, imageURL=?, category=? WHERE interiorExteriorID=?`,
+            [name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category, id]
+        );
+    } catch (error) {
+        console.error('Error updating interiorExterior:', error);
+        throw error; // rethrow the error so it can be handled by the calling function
+    }
+};
+
 
 const deleteInteriorExteriorDb = async(id) => {
     let [data] = await pool.query(
@@ -23,15 +38,10 @@ const deleteInteriorExteriorDb = async(id) => {
     )
 };
 
-const updateInteriorExteriorDb = async(interiorExteriorID, name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category) => {
-    await pool.query(
-        `UPDATE interiorExterior SET interiorExteriorID =?, name=?, material=?, color=?, compatibleCarMake=?, price=?, stockQuantity=?, warrantyPeriod=?, description=?, imageURL=?, category=?`, [interiorExteriorID, name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category] 
-    )
-};
 
 // const addToCartDb = async (fruit_ID, user_ID) => {
 //     await pool.query (`INSERT INTO cart (fruit_ID, user_ID) VALUES(?,?) `,
 //     [fruit_ID, user_ID] )
 // }
 
-export{getInteriorExteriorsDb,getInteriorExteriorDb,addInteriorExteriorDb,deleteInteriorExteriorDb,updateInteriorExteriorDb,addToCartDb}
+export{getInteriorExteriorsDb,getInteriorExteriorDb,addInteriorExteriorDb,deleteInteriorExteriorDb,updateInteriorExteriorDb}

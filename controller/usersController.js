@@ -8,8 +8,8 @@ const fetchUsers = async (req, res) => {
 
 const fetchUser = async (req, res) => {
     res.json(await getUserDB(req.params.id))
+    console.log(req.params.id);   
 }
-firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
 
 const addUser = async (req, res) => {
     let {firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile} = req.body
@@ -18,25 +18,28 @@ const addUser = async (req, res) => {
     res.send('Data was successfully inserted')
 }
 
+const updateUser = async (req, res) => {
+    let {firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile} = req.body
+    let user = await getUserDB(req.params.id)
+
+    firstName ? firstName = firstName : firstName = user.firstName
+    lastName ? lastName = lastName : lastName = user.lastName
+    userAge ? userAge = userAge : userAge = user.userAge
+    Gender ? Gender = Gender : Gender = user.Gender
+    userRole ? userRole = userRole : userRole = user.userRole
+    emailAdd ? emailAdd = emailAdd : emailAdd = user.emailAdd
+    userPass ? userPass = userPass : userPass = user.userPass
+    userProfile ? userProfile = userProfile : userProfile = user.userProfile
+
+    await updateUserDB(firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile, req.params.id)
+    res.send('User info was successfully updated')
+}
+
 const removeUser = async (req, res) => {
     await removeUserDB(req.params.id)
     res.send('Data was successfully removed')
 }
 
-const updateUser = async (req, res) => {
-    let {name, surname, age, coding_lang, car, eye_color} = req.body
-    let user = await getUserDB(req.params.id)
-
-    name ? name = name : name = user.name
-    surname ? surname = surname : surname = user.surname
-    age ? age = age : age = user.age
-    coding_lang ? coding_lang = coding_lang : coding_lang = user.fav_coding_lang
-    car ? car = car : car = user.fav_car
-    eye_color ? eye_color = eye_color : eye_color = user.eye_color
-
-    await updateUserDB(name, surname, age, coding_lang, car, eye_color, req.params.id)
-    res.send('User info was successfully updated')
-}
 
 const loginUser = (req, res) => {
     res.json({

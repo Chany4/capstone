@@ -11,9 +11,28 @@ const getMechanic= async (req, res) => {
 }
 
 const addMechanic = async (req, res) => {
-    let {partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category} = req.body
-    await addMechanicDb(partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category)
+    let {partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description} = req.body
+    await addMechanicDb(partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description)
     res.send('Data was successfully inserted')
+}
+
+const updateMechanic = async (req,res) => {
+    let {partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description} = req.body
+    let mechanics = await updateMechanicDb(req.params.id)
+
+    partName ? partName = partName : partName = mechanics.partName
+    material ? material = material : material = mechanics.material
+    engineType ? engineType = engineType : engineType = mechanics.engineType
+    compatibleCarMake ? compatibleCarMake = compatibleCarMake : compatibleCarMake = mechanics.compatibleCarMake
+    imageURL ? imageURL = imageURL : imageURL = mechanics.fav_imageURL
+    price ? price = price : price = mechanics.price
+    category ? category = category : category = mechanics.category
+    stockQuantity ? stockQuantity = stockQuantity : stockQuantity = mechanics.stockQuantity
+    warrantyPeriod ? warrantyPeriod = warrantyPeriod : warrantyPeriod = mechanics.warrantyPeriod
+    description ? description = description : description = mechanics.description
+
+    await updateMechanicDb(partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description)
+    res.send('User info was successfully updated')
 }
 
 const deleteMechanic = async (req, res) => {
@@ -21,24 +40,6 @@ const deleteMechanic = async (req, res) => {
     res.send('Data was successfully removed')
 }
 
-const updateMechanic = async (req,res) => {
-    let {partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category} = req.body
-    let mechanics = await getUserDB(req.params.id)
-
-    partName ? partName = partName : partName = mechanics.partName
-    material ? material = material : material = mechanics.material
-    engineType ? engineType = engineType : engineType = mechanics.engineType
-    compatibleCarMake ? compatibleCarMake = compatibleCarMake : compatibleCarMake = mechanics.fav_compatibleCarMake
-    imageURL ? imageURL = imageURL : imageURL = mechanics.fav_imageURL
-    stockQuantity ? stockQuantity = stockQuantity : stockQuantity = mechanics.stockQuantity
-    warrantyPeriod ? warrantyPeriod = warrantyPeriod : warrantyPeriod = mechanics.warrantyPeriod
-    description ? description = description : description = mechanics.description
-    price ? price = price : price = mechanics.price
-    category ? category = category : category = mechanics.category
-
-    await updateMechanicDb(partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category)
-    res.send('User info was successfully updated')
-}
 
 
 

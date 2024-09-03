@@ -1,8 +1,7 @@
 import {getMechanics,getMechanic,addMechanic,deleteMechanic,updateMechanic} from '../controller/mechanicController.js'
 import {getInteriorExteriors,getInteriorExterior,addInteriorExterior,deleteInteriorExterior,updateInteriorExterior} from '../controller/interiorExteriorController.js'
-import {getTools,getTool,addTool,deleteTool,updateTool} from '../controller/toolsController.js'
 import {fetchUsers,fetchUser,addUser,removeUser,updateUser,loginUser} from '../controller/usersController.js'
-import {express} from express;
+import express from 'express'
 
 const router = express.Router()
 
@@ -10,50 +9,42 @@ const router = express.Router()
 
 router.get('/getMechanics',getMechanics)
 
-router.get('/getMechanic',getMechanic)
+router.get('/getMechanic/:id',getMechanic)
 
-router.post('/addMechanics',addMechanic)
+router.post('/addMechanic',addMechanic)
+
+router.patch('/mech/:id',updateMechanic)
 
 router.delete('/mech/:id',deleteMechanic)
 
-router.patch('/mech/:id',updateMechanic)
 
 
 // interior and  exterior 
 
-router.get('/getMechanics',getInteriorExteriors)
+router.get('/getInteriorExterior',getInteriorExteriors)
 
-router.get('/getMechanic',getInteriorExterior)
+router.get('/getInteriorExterior/:id',getInteriorExterior)
 
-router.post('/addMechanics',addInteriorExterior)
-
-router.delete('/intExt/:id',deleteInteriorExterior)
+router.post('/addInteriorExterior',addInteriorExterior)
 
 router.patch('/intExt/:id',updateInteriorExterior)
 
-// tools
+router.delete('/intExt/:id',deleteInteriorExterior)
 
-router.get('/getTools',getTools)
 
-router.get('/getTool',getTool)
-
-router.post('/addTool',addTool)
-
-router.delete('/tools/:id',deleteTool)
-
-router.patch('/tools/:id',updateTool)
 
 // users
 
 router.get('/getUsers',fetchUsers)
 
-router.get('/getUser',fetchUser)
+router.get('/getUser/:id',fetchUser)
 
 router.post('/addUser',addUser)
 
-router.delete('/addUser/:id',removeUser)
-
 router.patch('/updateUser/:id',updateUser)
+
+router.delete('/removeUser/:id',removeUser)
+
 
 router.post('/login',loginUser)
 

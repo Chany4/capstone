@@ -1,4 +1,4 @@
-import {getInteriorExteriorsDb,getInteriorExteriorDb,addInteriorExteriorDb,deleteInteriorExteriorDb,updateInteriorExteriorDb,addToCartDb} from '../model/interiorExteriorDb'
+import {getInteriorExteriorsDb,getInteriorExteriorDb,addInteriorExteriorDb,deleteInteriorExteriorDb,updateInteriorExteriorDb} from '../model/interiorExteriorDb.js'
 
 const getInteriorExteriors = async (req, res) => {
     res.json(await getInteriorExteriorsDb());
@@ -15,29 +15,32 @@ const addInteriorExterior = async (req, res) => {
     res.send('Data was successfully inserted')
 }
 
-const deleteInteriorExterior = async (req, res) => {
-    await deleteInteriorExteriorDb(req.params.id);
-    res.send('Data was successfully removed')
-}
+// name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category
 
 const updateInteriorExterior = async (req,res) => {
-    let {interiorExteriorID, name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category} = req.body
-    let interiorExterior = await getUserDB(req.params.id)
+    let {name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category} = req.body
+    let interiorExterior = await updateInteriorExteriorDb(req.params.id)
 
-    interiorExteriorID ? interiorExteriorID = interiorExteriorID : interiorExteriorID = interiorExterior.interiorExteriorID
     name ? name = name : name = interiorExterior.name
     material ? material = material : material = interiorExterior.material
     color ? color = color : color = interiorExterior.color
-    compatibleCarMake ? compatibleCarMake = compatibleCarMake : compatibleCarMake = interiorExterior.fav_compatibleCarMake
+    compatibleCarMake ? compatibleCarMake = compatibleCarMake : compatibleCarMake = interiorExterior.compatibleCarMake
     price ? price = price : price = interiorExterior.price
     stockQuantity ? stockQuantity = stockQuantity : stockQuantity = interiorExterior.stockQuantity
     warrantyPeriod ? warrantyPeriod = warrantyPeriod : warrantyPeriod = interiorExterior.warrantyPeriod
     description ? description = description : description = interiorExterior.description
-    imageURL ? imageURL = imageURL : imageURL = interiorExterior.fav_imageURL
+    imageURL ? imageURL = imageURL : imageURL = interiorExterior.imageURL
     category ? category = category : category = interiorExterior.category
 
-    await updateInteriorExteriorDb(partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category)
+    await updateInteriorExteriorDb(name, material, color, compatibleCarMake, price, stockQuantity, warrantyPeriod, description, imageURL, category,req.params.id)
+    // console.log(interiorExterior);
     res.send('User info was successfully updated')
+}
+
+
+const deleteInteriorExterior = async (req, res) => {
+    await deleteInteriorExteriorDb(req.params.id);
+    res.send('Data was successfully removed')
 }
 
 

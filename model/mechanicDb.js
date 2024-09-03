@@ -1,33 +1,36 @@
 import { pool } from "../config/config.js";
 
 const getMechanicsDb = async () => {
-    let [data] = await pool.query(`SELECT * FROM mechanical_parts `)
+    let [data] = await pool.query(`SELECT * FROM mechanicalParts `)
     return data;
 }
 
 const getMechanicDb = async (id) => {
-    let [[data]] =  await pool.query('SELECT * FROM mechanical_parts WHERE mechanicalPartID = ?',[id])
+    let [[data]] =  await pool.query(`SELECT * FROM mechanicalParts WHERE mechanicalPartID = ?`,[id]);
+    return data;
 }
 
 
-const addMechanicDb = async (partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category) => {
-    let [data] = await pool.query(`INSERT INTO mechanical_parts (partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category) VALUES(?,?,?,?,?,?,?,?,?,?) `,
-    [partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category]  
-    )   
-    return data
+const addMechanicDb = async (partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description) => {
+    let [data] = await pool.query(`INSERT INTO mechanicalParts (partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description) VALUES(?,?,?,?,?,?,?,?,?,?) `,
+    [partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description]  
+    );
 }
+
+const updateMechanicDb = async(partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description,id) => {
+    await pool.query(
+        `UPDATE mechanicalParts SET partName=?, material=?, engineType=?, compatibleCarMake=?, imageURL=?,  price=?, category=?, stockQuantity=?, warrantyPeriod=?, description=? WHERE mechanicalPartID=?`, [partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description,id] 
+    )
+};
 
 const deleteMechanicDb = async(id) => {
     let [data] = await pool.query(
-        `DELETE FROM mechanical_parts WHERE mechanicalPartID = ?`, [id] 
+        `DELETE FROM mechanicalParts WHERE mechanicalPartID = ?`, [id] 
     )
 };
 
-const updateMechanicDb = async(mechanicalPartID,partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category) => {
-    await pool.query(
-        `UPDATE mechanical_parts SET mechanicalPartID=?,partName=?, material=?, engineType=?, compatibleCarMake=?, imageURL=?, stockQuantity=?, warrantyPeriod=?, description=?, price=?, category=?`, [mechanicalPartID,partName, material, engineType, compatibleCarMake, imageURL, stockQuantity, warrantyPeriod, description, price, category] 
-    )
-};
+
+
 
 const addToCartDb = async (fruit_ID, user_ID) => {
     await pool.query (`INSERT INTO cart (fruit_ID, user_ID) VALUES(?,?) `,

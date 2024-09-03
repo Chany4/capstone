@@ -13,13 +13,22 @@ const apiURL = 'https://capstone-jm4p.onrender.com/'
 export default createStore({
   state: {
     users: null,
+    mech:null,
+    intExt:null
   },
   getters: {
   },
   mutations: {
     setUsers(state, payload){
       state.users = payload
-    }
+    },
+    setMech(state, payload){
+      state.mech = payload
+    },
+    setIntExt(state, payload){
+      state.intExt = payload
+    },
+
 
   },
   actions: {
@@ -39,10 +48,24 @@ export default createStore({
       }
       },
     async fetchMech(context) {
-      console.log('here');
+      console.log('hii');
       try {
         const results = await (await axios.get(`${apiURL}bigTime/getMechanics`)).data;
-        context.commit('setUsers', results) 
+        context.commit('setMech', results) 
+        console.log(results);
+      } catch (error) {
+        toast.error(`Ooops something `, {
+          autoClose : 3000,
+          position : 'bottom-center'
+
+        })
+      }
+      },
+    async fetchIntExt(context) {
+      console.log('weow');
+      try {
+        const results = await (await axios.get(`${apiURL}bigTime/getInteriorExterior`)).data;
+        context.commit('setIntExt', results) 
         console.log(results);
       } catch (error) {
         toast.error(`Ooops something `, {
@@ -52,8 +75,6 @@ export default createStore({
         })
       }
       }
-
-
 
 
     },

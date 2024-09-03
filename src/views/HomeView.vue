@@ -1,61 +1,72 @@
-<template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="x">
-        <img src="https://chany4.github.io/capstone-images/images/home%20page/carousel_home.jpg" alt="homePage">
-      </div>
+<template lang="">
+  <div class="parallax">
+    <div class="text">
+      <h1>BIG TIME</h1>
     </div>
-    <div class="row">
-      <div class="col-4">
-        <div class="a">
-          <img src="https://chany4.github.io/capstone-images/images/home%20page/home_pagecar.png" alt="">
-        </div>
-      </div>
-      <div class="col-8">
+    <img src="https://chany4.github.io/capstone-images/images/parallax/purpleLeft_lightning-removebg-preview.png" class="lightning_Right">
 
-      </div>
-    </div>
+    <img src="https://chany4.github.io/capstone-images/images/parallax/purpleRight_lightning-removebg-preview.png" class="lightning_Left">
 
+    <img src="https://chany4.github.io/capstone-images/images/parallax/download__14_-removebg-preview.png" class="car_middle">
+
+    <img src="https://chany4.github.io/capstone-images/images/parallax/Black_Smoke_Wallpaper_-_Phone_Background-removebg-preview.png" class="black_smoke">
+
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus nam vitae inventore dolores officia modi cum, cumque sit nemo corrupti, ex maxime quo, explicabo dolorem optio! Iste numquam blanditiis ipsa. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore vel sapiente perferendis amet voluptates tenetur itaque quae, aperiam eos voluptate delectus sint nesciunt ratione, libero, impedit asperiores quod maiores ex! Lorem ipsum, dolor sit amet consectetur adipisicing elit. A repudiandae quo autem? Animi quam dolor quaerat quod voluptate nihil sapiente libero delectus, voluptates repudiandae consequatur magni! In illo sunt impedit?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque aut autem obcaecati, nemo corporis corrupti sed suscipit voluptas, ratione consequatur? Asperiores voluptates optio adipisci quos, provident repudiandae mollitia veritatis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus nam vitae inventore dolores officia modi cum, cumque sit nemo corrupti, ex maxime quo, explicabo dolorem optio! Iste numquam blanditiis ipsa. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore vel sapiente perferendis amet voluptates tenetur itaque quae, aperiam eos voluptate delectus sint nesciunt ratione, libero, impedit asperiores quod maiores ex! Lorem ipsum, dolor sit amet consectetur adipisicing elit. A repudiandae quo autem? Animi quam dolor quaerat quod voluptate nihil sapiente libero delectus, voluptates repudiandae consequatur magni! In illo sunt impedit?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque aut autem obcaecati, nemo corporis corrupti sed suscipit voluptas, ratione consequatur? Asperiores voluptates optio adipisci quos, provident repudiandae mollitia veritatis
+      </p>
   </div>
 </template>
-
 <script>
 export default {
-  // Your component logic here
+  
 }
 </script>
-
 <style scoped>
-/* Apply a global reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Include padding and border in element's total width and height */
+h1{
+  color: white;
+  text-align: center;
 }
+  .parallax{
+    /* position: relative;
+    z-index: 0; */
+    background-color: black;
+    min-height: 75vh;
+    display: grid;
+    grid-template-areas: "stack";
+  }
 
-.container-fluid{
-  overflow-x: unsetm; /* Hide horizontal overflow */
-  background-color: black;
-}
+  .parallax > * {
+    grid-area: stack;
+    animation: parallax linear 500ms;
+    animation-timeline: scroll();
+  }
 
-.x{
-  width: 1700px;
-  height: min-content;
-}
+  .parallax > img{
+    width: 100%;
+  }
+  .black_smoke{
+    position: absolute;
+    top: 200px;
+    opacity: 30%;
+    z-index: 0;
+  }
+  .lightning_Left{
+    position: absolute;
+    top: 10px;
+  }
+  .lightning_Right{
+    position: absolute;
+    top: 10px;
+    z-index: 1;
+  }
+  .car_middle{
+    position: absolute;
+    z-index: 1;
+  }
 
-.x> img {
-  display: block; /* Remove any unwanted space below the image */
-  height: 100%; /* Adjust height as needed */
-  width: 100%; /* Ensure the image takes full viewport width */
-  object-fit: contain; 
-  object-position: center; /* Center the image */
-}
-.a{
-  width: 100%;
-  height: auto;
-}
-.a>img{
-  width: 100%;
-  height: 100%;
-}
+  @keyframes parallax{
+    to{
+      transform: translateY(calc(var(--parallax-speed)*(200px)));
+    }
+  }
 </style>

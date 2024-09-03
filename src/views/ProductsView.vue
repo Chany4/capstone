@@ -1,12 +1,17 @@
 <template>
     <div>
-        <h1>This is an login page</h1>
+        <h2>Welcome to the Products Page</h2>
     </div>
 </template>
-<script>
-export default {
-    
-}
+<script setup>
+import { onMounted } from 'vue';
+import store from '@/store';
+
+
+onMounted(()=>{
+    store.dispatch('fetchUsers')
+})
+
 </script>
 <style scoped>
     

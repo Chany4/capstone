@@ -38,19 +38,20 @@ export default createStore({
         })
       }
       },
-    // async fetchUsers(context) {
-    //   console.log('here');
-    //   try {
-    //     const results = await (await axios.get(`${apiURL}bigTime/getUsers`)).data;
-    //     context.commit('setUsers', results) 
-    //   } catch (error) {
-    //     toast.error(`Ooops something `, {
-    //       autoClose : 3000,
-    //       position : 'bottom-center'
+    async fetchMech(context) {
+      console.log('here');
+      try {
+        const results = await (await axios.get(`${apiURL}bigTime/getMechanics`)).data;
+        context.commit('setUsers', results) 
+        console.log(results);
+      } catch (error) {
+        toast.error(`Ooops something `, {
+          autoClose : 3000,
+          position : 'bottom-center'
 
-    //     })
-    //   }
-    //   }
+        })
+      }
+      }
 
 
 

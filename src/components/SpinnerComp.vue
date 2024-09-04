@@ -1,7 +1,8 @@
-<template lang="">
+<template>
     
   <div class="gearbox">
-  <div class="overlay"></div>
+  <div id="centre">
+    <div class="overlay"></div>
     <div class="gear one">
       <div class="gear-inner">
         <div class="bar"></div>
@@ -34,6 +35,7 @@
       </div>
     </div>
   </div>
+  </div>
 
 </template>
 <script>
@@ -63,18 +65,35 @@ export default {
   }
 }
 
+#centre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Ensure it stays centered in its container */
+  top: -8%;
+  left: -8%;
+
+}
 .gearbox {
+  padding: 0;
+  margin: 0;
   background: #111;
-  height: 150px;
-  width: 200px;
+  height: 100vh;
+  width: 100vw;
   position: relative;
   border: none;
   overflow: hidden;
   border-radius: 6px;
   box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
+
+  /* Centering content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gearbox .overlay {
+  background: transparent;
   border-radius: 6px;
   content: "";
   position: absolute;

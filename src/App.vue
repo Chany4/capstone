@@ -6,7 +6,7 @@
       <main>
         <router-view />
       </main>
-      <FooterComp />
+      <FooterComp class="footer"/>
     </div>
   </div>
 </template>
@@ -36,5 +36,7 @@ export default {
 </script>
 
 <style scoped>
-/* Add any necessary scoped styles here */
+.footer{
+  z-index: 8;
+}
 </style>

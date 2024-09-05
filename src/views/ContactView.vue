@@ -86,17 +86,10 @@ p{
   font: bolder;
 }
 .img1 {
-  background: url("https://chany4.github.io/capstone-images/images/contact%20page/Screenshot%202024-09-03%20090401.png");
+  background: url("https://chany4.github.io/capstone-images/images/home%20page/Screenshot%202024-09-03%20090401.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-}
-.img2 {
-  background: url("https://chany4.github.io/capstone-images/images/contact%20page/Desktop%20-%202.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 5%;
 }
 .inner {
   padding: 15%;

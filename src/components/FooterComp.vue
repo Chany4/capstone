@@ -55,10 +55,11 @@
   <style scoped>
   .footer-container {
     width: 100%;
+    z-index: 6;
   }
   
   .footerTop {
-    background-color: #3a3a3a;
+    background-color: black;
     color: white;
     padding: 20px;
   }

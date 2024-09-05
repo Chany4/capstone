@@ -2,7 +2,8 @@
     <nav class="navbar navbar-expand-lg bg-body sticky-top">
       <div class="container-fluid ">
         <router-link class="navbar-brand" to="/">
-          <img src="https://chany4.github.io/symphony-images/images/Symphony_logo.png" loading="lazy" alt="logo">
+          <!-- <img src="" loading="lazy" alt="logo"> -->
+           <h4>Big Time</h4>
         </router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -36,8 +37,10 @@
   </template>
   
   <style scoped>
+  nav{
+    background-color: #3333334f;
+  }
   .container-fluid {
-    background-color: black;
     height: 80px;
   }
   

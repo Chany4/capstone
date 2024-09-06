@@ -196,13 +196,13 @@ export default {};
 }
 
 .parallax__rightLightning {
-  --parallax-speed: 5;
+  --parallax-speed: 9;
   z-index: 4;
   width: 100%;
 }
 
 .parallax__car {
-  --parallax-speed: 32;
+  --parallax-speed: 27;
   z-index: 5;
   width: 80%;
   margin-left: 17%;

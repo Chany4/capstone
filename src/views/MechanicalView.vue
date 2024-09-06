@@ -35,9 +35,14 @@
                 </div>
               </template>
               <template #cardButton2>
-                <div class="d-flex justify-content-between">
-                  <button @click="View" id="black">View more</button>
-                </div>
+                <router-link
+                  :to="{
+                    name: 'singleView',
+                    params: { id: mech.mechanicalPartID },
+                  }"
+                >
+                  <button class="btn ">View more</button>
+                </router-link>
               </template>
             </Card>
           </div>
@@ -81,4 +86,3 @@ h1 {
   text-align: center;
 }
 </style>
-b

@@ -7,6 +7,7 @@ import ContactView from '@/views/ContactView.vue'
 import AdminView from '@/views/AdminView.vue'
 import MechanicalView from '@/views/MechanicalView.vue'
 import InteriorExteriorView from '@/views/InteriorExteriorView.vue'
+import ProductSingleView from '@/views/ProductSingleView.vue'
 
 const routes = [
   {
@@ -48,6 +49,12 @@ const routes = [
     path:'/interiorExterior',
     name:'interiorExterior',
     component:InteriorExteriorView
+  },
+  {
+    path: '/singleView/:id',
+    name: 'singleView',
+    component:ProductSingleView,
+    props: true,
   }
 ]
 

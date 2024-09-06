@@ -6,6 +6,31 @@
       </div>
     </div>
 
+    <div class="home">
+      <div class="home-content row d-flex justify-content-between">
+        <div class="col-md-4 x">product display</div>
+        <div class="col-md-4 x">product display</div>
+        <div class="col-md-4 x">product display</div>
+      </div>
+      <div class="row d-flex justify-content-center">
+       
+          <div class="carousel-item" style="background-color: #FF5733;">Item 1</div>
+          <div class="carousel-item" style="background-color: #33FFBD;">Item 2</div>
+          <div class="carousel-item" style="background-color: #3380FF;">Item 3</div>
+          <div class="carousel-item" style="background-color: #B833FF;">Item 4</div>
+          <div class="carousel-item" style="background-color: #FF33EC;">Item 5</div>
+          <div class="carousel-item" style="background-color: #FFB833;">Item 6</div>
+          <div class="carousel-item" style="background-color: #FF3333;">Item 7</div>
+          <div class="carousel-item" style="background-color: #80FF33;">Item 8</div>
+          <div class="carousel-item" style="background-color: #33FF57;">Item 9</div>
+          <div class="carousel-item" style="background-color: #5733FF;">Item 10</div>
+          <div class="carousel-item" style="background-color: #33C3FF;">Item 11</div>
+          <div class="carousel-item" style="background-color: #FF5733;">Item 12</div>
+       
+      </div>
+    </div>
+    
+
   </div>
 </template>
 <script>
@@ -18,8 +43,11 @@ export default {};
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-sizing: border-box;
 }
+.parallax{
+  object-fit: contain;
+}
 h1 {
-  font-size: 110px;
+  font-size: 100px;
   text-align: center;
   text-shadow: 5px 2px 1px black;
   font-weight: bolder;
@@ -40,10 +68,18 @@ p{
   padding: 15%;
 }
 
-.contactForm {
-  background-color: rgb(29, 29, 29);
-  padding: 15%;
+.home{
+ margin: 4%;
 }
+
+.x{
+  padding: 2% ;
+  width: 400px;
+  height: 250px;
+  background-color: red;
+  margin: 1%;
+}
+
 
 /* form */
 

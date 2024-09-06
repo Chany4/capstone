@@ -8,6 +8,7 @@ const getMechanics = async (req, res) => {
 const getMechanic= async (req, res) => {
     res.json(await getMechanicDb(req.params.id));
     console.log(req.params.id);
+
 }
 
 const addMechanic = async (req, res) => {

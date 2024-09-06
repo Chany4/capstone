@@ -1,6 +1,7 @@
 import {getMechanics,getMechanic,addMechanic,deleteMechanic,updateMechanic} from '../controller/mechanicController.js'
 import {getInteriorExteriors,getInteriorExterior,addInteriorExterior,deleteInteriorExterior,updateInteriorExterior} from '../controller/interiorExteriorController.js'
 import {fetchUsers,fetchUser,addUser,removeUser,updateUser,loginUser} from '../controller/usersController.js'
+import { checkUser,verifyAToken } from '../middleware/authenticate.js'
 import express from 'express'
 
 const router = express.Router()
@@ -46,7 +47,7 @@ router.patch('/updateUser/:id',updateUser)
 router.delete('/removeUser/:id',removeUser)
 
 
-router.post('/login',loginUser)
+router.post('/login', checkUser,loginUser)
 
 
 

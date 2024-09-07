@@ -5,9 +5,9 @@ div{
 
 #app{
     overflow-x: hidden;
-    overflow: hidden;
 }
 
-body{
-    overflow-x: hidden;
+body,html{
+    margin: 0;
+    padding: 0;
 }

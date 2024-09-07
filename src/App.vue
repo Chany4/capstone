@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m">
     <SpinnerComp v-if="showSpinner" />
     <div v-else>
       <NavbarComp />
@@ -42,5 +42,10 @@ export default {
 div{
     padding: 0;
     margin: 0;
+}
+
+.m{
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 </style>

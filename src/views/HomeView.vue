@@ -1,5 +1,5 @@
 <template>
-  <div id="parallax">
+  <div id="parallax m">
     <div class="img1">
       <div class="inner">
         <h1>Big Time</h1>
@@ -73,7 +73,7 @@ p{
 }
 
 .home{
- margin: 4%;
+ padding:2%;
 }
 
 .x{
@@ -85,7 +85,7 @@ p{
 }
 .y{
   padding: 2%;
-  width: 320px;
+  width: 270px;
   height: 200px;
   margin: 2%;
   background-color: green;
@@ -93,7 +93,10 @@ p{
 .z{
   background-color: grey;
 }
-
+.m{
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 /*  */
 
 </style>

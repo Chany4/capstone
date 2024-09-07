@@ -1,5 +1,5 @@
 <template >
-  <div class="parallax">
+  <div class="parallax m">
        
        <div class="hero">
          <div class="wrapper">
@@ -9,10 +9,10 @@
          </div>
        </div>
 
-       <img class="parallax__car" src="https://chany4.github.io/capstone-images/images/parallax/download__14_-removebg-preview.png" alt="" />
-       <img class="parallax__lightningLeft" src="https://chany4.github.io/capstone-images/images/parallax/purpleLeft_lightning-removebg-preview.png" alt="" />
-       <img class="parallax__rightLightning" src="https://chany4.github.io/capstone-images/images/parallax/purpleRight_lightning-removebg-preview.png" alt="" />
-       <img class="parallax__smoke" src="https://chany4.github.io/capstone-images/images/parallax/Black_Smoke_Wallpaper_-_Phone_Background-removebg-preview.png" alt="" />
+       <img class="parallax__car" src="https://chany4.github.io/capstone-images/images/parallax/download__14_-removebg-preview.png" alt="img2" />
+       <img class="parallax__lightningLeft" src="https://chany4.github.io/capstone-images/images/parallax/purpleLeft_lightning-removebg-preview.png" alt="img" />
+       <img class="parallax__rightLightning" src="https://chany4.github.io/capstone-images/images/parallax/purpleRight_lightning-removebg-preview.png" alt="img" />
+       <img class="parallax__smoke" src="https://chany4.github.io/capstone-images/images/parallax/Black_Smoke_Wallpaper_-_Phone_Background-removebg-preview.png" alt="img" />
      </div>
 
 <main class="main-content">
@@ -166,6 +166,7 @@
 export default {};
 </script>
 <style scoped>
+
 .parallax {
   /* overflow: hidden; */
   position: relative;
@@ -205,20 +206,13 @@ export default {};
   --parallax-speed: 27;
   z-index: 5;
   width: 80%;
-  margin-left: 17%;
+  margin-left: 13%;
 }
 
 .parallax__smoke {
   --parallax-speed: 22;
   z-index: 3;
   width: 100%;
-}
-
-
-.parallax__foreground-back {
-  transform: scaleY(1.2);
-  transform-origin: bottom;
-  mix-blend-mode: hard-light;
 }
 
 .main-content {
@@ -242,15 +236,6 @@ html {
   color-scheme: dark;
 }
 
-body {
-  margin: 0;
-  font-family: "Rubik", sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700; /* for demo only */
-  text-transform: uppercase; /* for demo only */
-  min-height: 300vh; /* for demo only */
-}
-
 img {
   display: block;
   max-width: 100%;
@@ -261,10 +246,6 @@ img {
   margin-inline: auto;
 }
 
-.flex-group {
-  display: flex;
-  gap: 1rem;
-}
 
 .primary-header {
   padding-block: 2rem;
@@ -274,35 +255,6 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.primary-nav ul {
-  flex: 1;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-}
-
-.primary-nav a {
-  color: white;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.logo {
-  max-width: 100px;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: -3rem;
-    z-index: -1;
-    background: radial-gradient(hsl(0 0% 100% / 0.5), transparent 70%);
-  }
 }
 
 .hero {

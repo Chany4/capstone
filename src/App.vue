@@ -39,4 +39,8 @@ export default {
 .footer{
   z-index: 8;
 }
+div{
+    padding: 0;
+    margin: 0;
+}
 </style>

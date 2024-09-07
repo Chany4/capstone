@@ -7,7 +7,9 @@ import ContactView from '@/views/ContactView.vue'
 import AdminView from '@/views/AdminView.vue'
 import MechanicalView from '@/views/MechanicalView.vue'
 import InteriorExteriorView from '@/views/InteriorExteriorView.vue'
-import ProductSingleView from '@/views/ProductSingleView.vue'
+import ProductSingleView from '@/views/MechanicalSingle.vue'
+import IntExtSingle from '@/views/IntExtSingle.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const routes = [
   {
@@ -54,7 +56,18 @@ const routes = [
     path: '/singleView/:id',
     name: 'singleView',
     component:ProductSingleView,
-    props: true,
+    props: true
+  },
+  {
+    path:'/singleViewIntExt/:id',
+    name:'singleViewIntExt',
+    component: IntExtSingle,
+    props:true
+  },
+  {
+    path: '/login',
+    name:'login',
+    component: LoginView
   }
 ]
 

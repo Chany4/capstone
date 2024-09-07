@@ -6,28 +6,29 @@
       </div>
     </div>
 
-    <div class="home">
-      <div class="home-content row d-flex justify-content-between">
+    <div class="home container-fluid">
+      <div class="home-content row d-flex justify-content-around">
         <div class="col-md-4 x">product display</div>
         <div class="col-md-4 x">product display</div>
         <div class="col-md-4 x">product display</div>
       </div>
-      <div class="row d-flex justify-content-center">
-       
-          <div class="carousel-item" style="background-color: #FF5733;">Item 1</div>
-          <div class="carousel-item" style="background-color: #33FFBD;">Item 2</div>
-          <div class="carousel-item" style="background-color: #3380FF;">Item 3</div>
-          <div class="carousel-item" style="background-color: #B833FF;">Item 4</div>
-          <div class="carousel-item" style="background-color: #FF33EC;">Item 5</div>
-          <div class="carousel-item" style="background-color: #FFB833;">Item 6</div>
-          <div class="carousel-item" style="background-color: #FF3333;">Item 7</div>
-          <div class="carousel-item" style="background-color: #80FF33;">Item 8</div>
-          <div class="carousel-item" style="background-color: #33FF57;">Item 9</div>
-          <div class="carousel-item" style="background-color: #5733FF;">Item 10</div>
-          <div class="carousel-item" style="background-color: #33C3FF;">Item 11</div>
-          <div class="carousel-item" style="background-color: #FF5733;">Item 12</div>
-       
+
+      <div class="row">
+      <p>Banner</p>
       </div>
+
+      <div class="row">
+        <div class="col-12 row d-flex justify-content-center">
+          <h2>Best Sellers</h2>
+        </div>
+        <div class="col-md-3 y">heyo</div>
+        <div class="col-md-3 y">heyo</div>
+        <div class="col-md-3 y">heyo</div>
+        <div class="col-md-3 y">heyo</div>
+      </div>
+      <h2>Ready to Upgrade Your Ride? Click Below to Join the BigTime Revolution!</h2>
+      <router-link to="/login"><button>hiii</button></router-link>
+
     </div>
     
 
@@ -53,6 +54,9 @@ h1 {
   font-weight: bolder;
   color: white;
 }
+h2{
+  text-align: center;
+}
 p{
   color: black;
   font: bolder;
@@ -74,99 +78,22 @@ p{
 
 .x{
   padding: 2% ;
-  width: 400px;
+  width: 350px;
   height: 250px;
   background-color: red;
   margin: 1%;
 }
-
-
-/* form */
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  font-family: inherit;
-  gap: 10px;
-  padding-inline: 2em;
-  padding-bottom: 0.4em;
-  background-color: #171717;
-  /* //background-color: #0a192f; */
-  border-radius: 20px;
+.y{
+  padding: 2%;
+  width: 320px;
+  height: 200px;
+  margin: 2%;
+  background-color: green;
+}
+.z{
+  background-color: grey;
 }
 
-.form-heading {
-  text-align: center;
-  margin: 2em;
-  color: #64ffda;
-  font-size: 1.2em;
-  background-color: transparent;
-  align-self: center;
-}
+/*  */
 
-.form-field {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  border-radius: 10px;
-  padding: 0.6em;
-  border: none;
-  outline: none;
-  color: white;
-  background-color: #171717;
-  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-}
-
-.input-field {
-  background: none;
-  border: none;
-  outline: none;
-  width: 100%;
-  color: #ccd6f6;
-  padding-inline: 1em;
-}
-
-.sendMessage-btn {
-  cursor: pointer;
-  margin-bottom: 3em;
-  padding: 1em;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  color: #64ffda;
-  font-weight: bold;
-  outline: 1px solid #64ffda;
-  transition: all ease-in-out 0.3s;
-}
-
-.sendMessage-btn:hover {
-  transition: all ease-in-out 0.3s;
-  background-color: #64ffda;
-  color: #000;
-  cursor: pointer;
-  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
-}
-
-.form-card1 {
-  background-image: linear-gradient(163deg, #64ffda 0%, #64ffda 100%);
-  border-radius: 22px;
-  transition: all 0.3s;
-}
-
-.form-card1:hover {
-  box-shadow: 0px 0px 30px 1px rgba(100, 255, 218, 0.3);
-}
-
-.form-card2 {
-  border-radius: 0;
-  transition: all 0.2s;
-}
-
-.form-card2:hover {
-  transform: scale(0.98);
-  border-radius: 20px;
-}
 </style>

@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import { toast } from 'vue3-toastify';
 import "vue3-toastify/dist/index.css";
+import IntExtSingle from '@/views/IntExtSingle.vue';
 // import { useCookies } from 'vue-cookies'
 // import router from '@/router';
 const apiURL = 'https://capstone-jm4p.onrender.com/'
@@ -14,7 +15,8 @@ export default createStore({
     users: null,
     mech:null,
     mechSingle:null,
-    intExt:null
+    intExt:null,
+    IntExtSingle:null
   },
   getters: {
   },
@@ -31,10 +33,13 @@ export default createStore({
     setIntExt(state, payload){
       state.intExt = payload
     },
-
+    setIntExtSingle(state,payload){
+      state.IntExtSingle= payload
+    }
 
   },
   actions: {
+    // users
     async fetchUsers(context) {
       console.log('here');
       try {
@@ -50,6 +55,9 @@ export default createStore({
         })
       }
       },
+
+      // mechanical
+
     async fetchMech(context) {
       console.log('hii');
       try {
@@ -85,6 +93,9 @@ export default createStore({
         })
       }
       },
+
+      // Interior and Exterior 
+
     async fetchIntExt(context) {
       console.log('weow');
       try {
@@ -98,7 +109,28 @@ export default createStore({
 
         })
       }
-      }
+      },
+      async fetchIntExtSingle({commit},id) {
+        console.log('Fetching single interior or exterior part...');
+        try {
+          const results = await (await axios.get(`${apiURL}bigTime/getInteriorExterior/${id}`)).data;
+          if (results) {
+                  commit('setIntExtSingle', results);
+                  console.log(results);
+                } else {
+                  toast.error(`${msg}`, {
+                    autoClose: 2000,  
+                    position: toast.POSITION.BOTTOM_CENTER
+                  })
+                }
+        } catch (error) {
+          toast.error(`Ooops something `, {
+            autoClose : 1000,
+            position : 'bottom-center'
+  
+          })
+        }
+        },
 
 
     },
@@ -106,16 +138,4 @@ export default createStore({
   }
 })
 
-
-
-
-
-// code 
-// actions: {
-//   async fetchMech({ commit }, id) {
-//     // Fetch from your API or backend
-//     const response = await axios.get(`/api/mechanical/${id}`);
-//     commit('SET_MECH', response.data);
-//   }
-// }
 

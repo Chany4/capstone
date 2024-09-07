@@ -35,7 +35,14 @@
               </template>
               <template #cardButton2>
                 <div class="d-flex justify-content-between">
-                  <button @click="View" id="black">View more</button>
+                  <router-link
+                  :to="{
+                    name: 'singleViewIntExt',
+                    params: { id: intExt.interiorExteriorID  },
+                  }"
+                >
+                  <button class="btn ">View more</button>
+                </router-link>
                 </div>
               </template>
             </Card>

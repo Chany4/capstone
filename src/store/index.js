@@ -5,8 +5,8 @@ import "vue3-toastify/dist/index.css";
 import IntExtSingle from '@/views/IntExtSingle.vue';
 import { useCookies } from 'vue-cookies'
 import router from '@/router';
-// const apiURL = 'https://capstone-jm4p.onrender.com/'
-const apiURL = 'http://localhost:9001/'
+const apiURL = 'https://capstone-jm4p.onrender.com/'
+// const apiURL = 'http://localhost:9001/'
 
 const msg = 'Product not found'
 

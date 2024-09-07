@@ -13,11 +13,11 @@
         <div class="col-md-4 x">product display</div>
       </div>
 
-      <div class="row">
+      <div class="row c">
       <p>Banner</p>
       </div>
 
-      <div class="row">
+      <div class="row d-flex justify-content-center">
         <div class="col-12 row d-flex justify-content-center">
           <h2>Best Sellers</h2>
         </div>
@@ -96,6 +96,9 @@ p{
 .m{
   max-width: 100vw;
   overflow-x: hidden;
+}
+.c{
+  background-color: grey;
 }
 /*  */
 

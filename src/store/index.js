@@ -4,8 +4,10 @@ import { toast } from 'vue3-toastify';
 import "vue3-toastify/dist/index.css";
 import IntExtSingle from '@/views/IntExtSingle.vue';
 import { useCookies } from 'vue-cookies'
-// import router from '@/router';
-const apiURL = 'https://capstone-jm4p.onrender.com/'
+import router from '@/router';
+// const apiURL = 'https://capstone-jm4p.onrender.com/'
+const apiURL = 'http://localhost:9001/'
+
 const msg = 'Product not found'
 
 // Should you reload the page after logging in
@@ -175,10 +177,9 @@ export default createStore({
         async loginUser({commit}, info) {
          
           try{
-            console.log('yayo');
-            let {data} = await axios.post(`${apiURL}bigTime/login`, info)
+            console.log('yayo', info);
+            let data = await axios.post(`${apiURL}bigTime/login`, info)
           console.log(data);
-          
           $cookies.set('token', data.token) 
           if (data.message) {
             toast("Login was success!", {
@@ -188,15 +189,16 @@ export default createStore({
               "dangerouslyHTMLString": true
             })
           }     
-          await router.push('/home') 
+          router.push('/') 
           // location.reload()
           }
           catch(error){
-            // toast.error(`Ooops something went wrong`, {
-            //   autoClose : 1000,
-            //   position : 'bottom-center'
-            // })
-            console.log(error);
+            // `Ooops there was an error with logging in `
+            toast.error(error.message, {
+              autoClose : 1000,
+              position : 'bottom-center'
+            })
+      
             
           }
           

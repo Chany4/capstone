@@ -144,8 +144,8 @@ export default {
           emailAdd: '',
           userPass: '',
           userProfile: '',
-          loginUsername: '',
-          loginPassword: '',
+          login_emailAdd: '',
+          login_userPass: '',
           signUp: true
       }
   },
@@ -154,7 +154,7 @@ export default {
           this.$store.dispatch('addUser', this.$data)
       },
       loginUser() {
-          this.$store.dispatch('loginUser', {username: this.login_emailAdd, password: this.login_userPass})
+          this.$store.dispatch('loginUser', {emailAdd: this.login_emailAdd, userPass: this.login_userPass})
         //   location.reload()
       }
   }

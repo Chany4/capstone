@@ -1,4 +1,4 @@
-import { compare } from "bcrypt";
+import { compare, hash } from "bcrypt";
 import { getUserDbByEmail } from "../model/usersDb.js";
 import jwt from "jsonwebtoken";
 import { config } from "dotenv";
@@ -6,7 +6,10 @@ config()
 
 const checkUser = async (req, res, next) => {
     const {emailAdd, userPass} = req.body;
+    console.log(req.body);
+    
     let hashedPassword = (await getUserDbByEmail(emailAdd)).userPass
+    console.log('hashed password: ', hashedPassword);
     
     let result = await compare(userPass, hashedPassword)
     if (result==true) {

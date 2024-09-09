@@ -22,7 +22,7 @@ router.delete('/mech/:id',deleteMechanic)
 
 // interior and  exterior 
 
-router.get('/getInteriorExterior',verifyAToken,getInteriorExteriors)
+router.get('/getInteriorExterior',getInteriorExteriors)
 
 router.get('/getInteriorExterior/:id',getInteriorExterior)
 

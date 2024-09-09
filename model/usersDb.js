@@ -16,6 +16,11 @@ const getUserDB = async (id) => {
 }
 // userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
 
+const getUserDbByEmail = async (emailAdd) => {
+    let [[data]] = await pool.query('SELECT * FROM users WHERE emailAdd =?' , [emailAdd])
+    return data?data:''
+}
+
 const addUserDB = async (firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile) => {
     await pool.query(`
         INSERT INTO users (firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile) 
@@ -36,4 +41,4 @@ const removeUserDB = async (id) => {
 }
 
 
-export{getUsersDB,getUserDB,addUserDB,removeUserDB,updateUserDB}
+export{getUsersDB,getUserDB,addUserDB,removeUserDB,updateUserDB,getUserDbByEmail}

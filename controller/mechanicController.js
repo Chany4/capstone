@@ -41,8 +41,17 @@ const deleteMechanic = async (req, res) => {
     res.send('Data was successfully removed')
 }
 
+// ADD TO CART INFO
+const addToCart1 = async (req, res) => {
+    console.log(req.body);
+    let {id} = await getUserDB(req.body.user)
+    console.log(id);
+    
+    // await addToCartDB(req.body.id, user_id)
+    res.json({message: "Item successfully added to cart"})
+}
 
 
 
 
-export{getMechanics,getMechanic,addMechanic,deleteMechanic,updateMechanic}
+export{getMechanics,getMechanic,addMechanic,deleteMechanic,updateMechanic,addToCart1}

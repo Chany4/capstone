@@ -1,4 +1,4 @@
-import {getMechanics,getMechanic,addMechanic,deleteMechanic,updateMechanic} from '../controller/mechanicController.js'
+import {getMechanics,getMechanic,addMechanic,deleteMechanic,updateMechanic,addToCart1} from '../controller/mechanicController.js'
 import {getInteriorExteriors,getInteriorExterior,addInteriorExterior,deleteInteriorExterior,updateInteriorExterior} from '../controller/interiorExteriorController.js'
 import {fetchUsers,fetchUser,addUser,removeUser,updateUser,loginUser} from '../controller/usersController.js'
 import { checkUser,verifyAToken } from '../middleware/authenticate.js'
@@ -22,7 +22,7 @@ router.delete('/mech/:id',deleteMechanic)
 
 // interior and  exterior 
 
-router.get('/getInteriorExterior',getInteriorExteriors)
+router.get('/getInteriorExterior',verifyAToken,getInteriorExteriors)
 
 router.get('/getInteriorExterior/:id',getInteriorExterior)
 
@@ -36,7 +36,7 @@ router.delete('/intExt/:id',deleteInteriorExterior)
 
 // users
 
-router.get('/getUsers',fetchUsers)
+router.get('/getUsers',verifyAToken,fetchUsers)
 
 router.get('/getUser/:id',fetchUser)
 
@@ -49,6 +49,10 @@ router.delete('/removeUser/:id',removeUser)
 
 router.post('/login', checkUser,loginUser)
 
+// cart
 
+router.post('/cartMech', verifyAToken, addToCart1)
+
+router.post('/cartIntExt', verifyAToken, addToCart1)
 
 export{router}

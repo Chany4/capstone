@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="container">
     <div class="row">
       <h1>Hiii</h1>

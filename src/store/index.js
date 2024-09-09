@@ -3,7 +3,7 @@ import axios from 'axios'
 import { toast } from 'vue3-toastify';
 import "vue3-toastify/dist/index.css";
 import IntExtSingle from '@/views/IntExtSingle.vue';
-// import { useCookies } from 'vue-cookies'
+import { useCookies } from 'vue-cookies'
 // import router from '@/router';
 const apiURL = 'https://capstone-jm4p.onrender.com/'
 const msg = 'Product not found'
@@ -16,12 +16,19 @@ export default createStore({
     mech:null,
     mechSingle:null,
     intExt:null,
-    IntExtSingle:null
+    IntExtSingle:null,
+    cart:[]
   },
   getters: {
   },
   mutations: {
     setUsers(state, payload){
+      state.users = payload
+    },
+    setSingleUser(state, payload){
+      state.users = payload
+    },
+    setAddUser(state, payload){
       state.users = payload
     },
     setMech(state, payload){
@@ -35,6 +42,17 @@ export default createStore({
     },
     setIntExtSingle(state,payload){
       state.IntExtSingle= payload
+    },
+    ADD_TO_CART(state, item) {
+      const cartItem = state.cart.find((cartItem) => cartItem.id === item.id);
+      if (cartItem) {
+        cartItem.quantity += 1;
+      } else {
+        state.cart.push({ ...item, quantity: 1 });
+      }
+    },
+    REMOVE_FROM_CART(state, itemId) {
+      state.cart = state.cart.filter(item => item.id !== itemId);
     }
 
   },
@@ -46,6 +64,26 @@ export default createStore({
         const results = await (await axios.get(`${apiURL}bigTime/getUsers`)).data;
         context.commit('setUsers', results) 
         console.log(results);
+        
+      } catch (error) {
+        toast.error(`Ooops something `, {
+          autoClose : 3000,
+          position : 'bottom-center'
+
+        })
+      }
+      },
+      
+    async addUser({commit}, info) {
+      console.log(info);
+      try {
+        const results = await (await axios.post(`${apiURL}bigTime/addUser`,info)).data;
+        console.log(results);
+        toast("Yayyy!You have signed in!", {
+          "theme": "auto",
+          "type": "default",
+          "dangerouslyHTMLString": true
+        })
         
       } catch (error) {
         toast.error(`Ooops something `, {
@@ -124,12 +162,64 @@ export default createStore({
                   })
                 }
         } catch (error) {
-          toast.error(`Ooops something `, {
+          toast.error(`Ooops something went wrong`, {
             autoClose : 1000,
             position : 'bottom-center'
   
           })
         }
+        },
+
+        // login
+        
+        async loginUser({commit}, info) {
+         
+          try{
+            console.log('yayo');
+            let {data} = await axios.post(`${apiURL}bigTime/login`, info)
+          console.log(data);
+          
+          $cookies.set('token', data.token) 
+          if (data.message) {
+            toast("Login was success!", {
+              "theme": "auto",
+              "type": "default",
+            "position": "top-center",
+              "dangerouslyHTMLString": true
+            })
+          }     
+          await router.push('/home') 
+          // location.reload()
+          }
+          catch(error){
+            // toast.error(`Ooops something went wrong`, {
+            //   autoClose : 1000,
+            //   position : 'bottom-center'
+            // })
+            console.log(error);
+            
+          }
+          
+        },
+
+        // cart
+        
+        async addToCartMech({ commit }, mechanicalPartID) {
+          // console.log('test');
+          
+          try {
+            let { data } = await axios.post(`${apiURL}bigTime/cartMech`, { id: mechanicalPartID });
+            console.log('Added to cart: ', data);
+            console.log('Mechanical Part ID:', mechanicalPartID);
+          } catch (error) {
+            console.error('Error adding to cart:', error);
+          }
+        },
+        async addToCartIntExt({commit}, interiorExteriorID) {
+          let {data} = await axios.post(`${apiURL}bigTime/cart2`, {id: interiorExteriorID})
+          console.log(data);
+          console.log(interiorExteriorID);
+          
         },
 
 

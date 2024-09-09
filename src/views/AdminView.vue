@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div>
         <h1>This is an admin page</h1>
     </div>
@@ -8,7 +8,7 @@ export default {
     
 }
 </script>
-<style lang="">
+<style>
     
 </style>
 

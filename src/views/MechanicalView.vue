@@ -31,7 +31,8 @@
               </template>
               <template #cardButton>
                 <div class="d-flex justify-content-between">
-                  <button @click="purchase" id="black">Purchase</button>
+                <button @click="purchase(mech.mechanicalPartID)" id="black">Purchase</button>
+              
                 </div>
               </template>
               <template #cardButton2>
@@ -66,15 +67,26 @@ import store from "@/store";
 
 const loading = ref(true);
 
+const purchase = (mechanicalPartID) => {
+  store.dispatch('addToCartMech', mechanicalPartID);
+  console.log("purchase button clicked", mechanicalPartID);
+}
+
 onMounted(() => {
   store.dispatch("fetchUsers");
+  purchase();
   store.dispatch("fetchMech").then(() => {
     store.dispatch("fetchIntExt").then(() => {
       loading.value = false;
     });
   });
+
 });
+
+
 </script>
+
+
 
 <style scoped>
 #black {

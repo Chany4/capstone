@@ -17,7 +17,10 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use(cors())
+app.use(cors({
+    origin: "*",
+    credentials:true,
+}))
 
 app.use(express.static('public'))
 app.use(express.json())

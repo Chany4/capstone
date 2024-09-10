@@ -1,89 +1,69 @@
 <template>
-    <div class="container">
-      <h1 class="text-center my-4">Your Cart</h1>
-  
-      <!-- Check if the cart is empty -->
-      <div v-if="cartItems.length === 0" class="text-center">
-        <p>Your cart is empty</p>
-        <router-link to="/products" class="btn btn-primary">Continue Shopping</router-link>
+  <div v-if="cartItems && cartItems.length">
+    <div class="row" v-for="item in cartItem" :key="item.id">
+      <div class="col-md-8 d-flex justify-content-center">
+        <img :src="item.cover_image" alt="product Image">
+        <strong>{{ item.partName }}</strong>
+        <p class="mb-1">Quantity: {{ item.stock_quantity }}</p>
       </div>
-  
-      <!-- Display cart items if not empty -->
-      <div v-else>
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Product</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Price</th>
-              <th scope="col">Total</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in cartItems" :key="item.id">
-              <td>
-                <div class="d-flex align-items-center">
-                  <img :src="item.imageURL" alt="Product Image" class="img-thumbnail" width="50" />
-                  <span class="ms-3">{{ item.name }}</span>
-                </div>
-              </td>
-              <td>{{ item.quantity }}</td>
-              <td>{{ formatPrice(item.price) }}</td>
-              <td>{{ formatPrice(item.price * item.quantity) }}</td>
-              <td>
-                <button @click="removeFromCart(item.id)" class="btn btn-danger btn-sm">
-                  Remove
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-  
-        <!-- Display the total price -->
-        <div class="d-flex justify-content-end">
-          <h3>Total: {{ formatPrice(totalPrice) }}</h3>
-        </div>
-  
-        <!-- Checkout button -->
-        <div class="text-end mt-4">
-          <button @click="checkout" class="btn btn-success">Checkout</button>
-        </div>
-      </div>
+      <button class="btn btn-primary w-100" @click="confirmDelete(item.id)">Delete</button>
+      <button class="btn btn-primary w-100" @click="proceedToPurchase">Proceed To Purchase</button>
+
     </div>
-  </template>
-  
-  <script>
-  export default {
-    computed: {
-      cartItems() {
-        // Assuming you store cart items in Vuex state
-        return this.$store.state.cart;
-      },
-      totalPrice() {
-        return this.cartItems.reduce((total, item) => {
-          return total + item.price * item.quantity;
-        }, 0);
-      }
-    },
-    methods: {
-      removeFromCart(itemId) {
-        this.$store.dispatch('removeFromCart', itemId);
-      },
-      formatPrice(price) {
-        return `$${price.toFixed(2)}`;
-      },
-      checkout() {
-        console.log('Proceeding to checkout...');
-        // You can navigate to the checkout page or trigger any other functionality here
-      }
+  </div>
+  <div v-else>
+    <p>Your Cart is empty</p>
+  </div>
+</template>
+<script setup>
+import { onMounted,computed } from 'vue';
+import {useStore} from 'vuex'
+import {useCookies} from 'vue3-cookies'
+// import Swal from 'sweetalert2'
+
+const store = useStore();
+const{cookies} = useCookies();
+
+const cartItems = computed(() => store.state.cart)
+
+// Loads cart items from cookies
+const loadCartFromCookies = () => {
+  const cartData = cookies.get('cart');
+  if(cartData){
+    try{
+      const parsedCart = JSON.parse(cartData);
+      store.commit('setCart', parsedCart); 
+    }catch(error){
+      console.error('Failed to Parse cart data from cookies', error);
+      store.commit('setCart',[])
     }
-  };
-  </script>
-  
-  <style scoped>
-  .table {
-    margin-top: 2rem;
+  }else{
+    store.commit('setCart',[])
   }
-  </style>
+}
+</script>
+<style>
   
+</style>
+
+
+
+
+
+
+
+
+
+<!-- <template >
+  <div>
+    <h1>hello</h1>
+  </div>
+</template>
+<script>
+export default {
+  
+}
+</script>
+<style>
+  
+</style> -->

@@ -22,20 +22,40 @@
               <router-link class="nav-link" exact-active-class="active-link" to="/products">Products</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" exact-active-class="active-link" to="/cart">Cart</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" exact-active-class="active-link" to="/admin">Admin</router-link>
-            </li>
-            <li class="nav-item">
               <router-link class="nav-link" exact-active-class="active-link" to="/contact">Contact</router-link>
             </li>
+            <li class="nav-item">
+              <router-link class="nav-link" exact-active-class="active-link" to="/cart"><i class="bi bi-cart"></i></router-link>
+            </li>
+            <ul class="navbar-nav" v-if="user">
+              <li class="nav-item" v-if="!isUser">
+                <router-link class="nav-link" exact-active-class="active-link" to="/admin"><i class="bi bi-person-check"></i></router-link>
+              </li>
+              <li class="nav-item" v-else>
+                <router-link class="nav-link" exact-active-class="active-link" to="/user"><i class="bi bi-person-circle"></i></router-link>
+              </li>
+            </ul>
+            <ul class="navbar-nav" v-else>
+              <li class="nav-item">
+                <router-link class="nav-link" exact-active-class="active-link" to="/login">Login</router-link>
+              </li>
+              
+            </ul>
           </ul>
         </div>
       </div>
     </nav>
   </template>
-  
+  <script setup>
+  import { computed } from 'vue';
+  import { useStore } from 'vuex'; 
+  import { useCookies } from 'vue3-cookies'
+  const {cookies} = useCookies()
+  const store = useStore()
+  const user = computed(() => store.state?.user || cookies.get('userInfo')?.user)
+  const isUser = computed(()=> user?.userRole?.toLowerCase() == 'user' )  
+
+</script>
   <style scoped>
   nav{
     background-color: #3333334f;

@@ -71,6 +71,286 @@
         need to make your car truly special. Explore our collection today and
         experience the BigTime difference!
       </p>
+      <p>
+        Welcome to BigTime At BigTime, we understand that car
+        enthusiasts deserve high-quality equipment without breaking the bank.
+        Specializing in affordable car components, we cater specifically to fans
+        of JDM legends like the Nissan Skyline GTR R34, Toyota Supra A80, and
+        Honda S2000. Our mission is to provide top-notch mechanical, interior,
+        and exterior parts at unbeatable prices, ensuring your vehicle not only
+        performs at its best but looks great doing it. 
+        
+        <br><br>Our Product Range <br><br>
+        Mechanical Components BigTime offers a wide array of mechanical parts
+        designed for optimal performance and durability. From
+        performance-enhancing upgrades to essential replacement components, we
+        have everything you need to get your JDM dream car running smoothly.
+        Interior Elements Enhance your driving experience with our selection of
+        affordable interior components. Whether you're looking for stylish seat
+        covers, shift knobs, or custom floor mats, BigTime has the perfect
+        options to personalize and improve the comfort of your ride. Exterior
+        Accessories Make a statement on the road with our collection of exterior
+        parts and accessories. BigTime stocks everything from spoilers and body
+        kits to LED lighting and decals, allowing you to customize your Nissan
+        Skyline GTR R34, Toyota Supra A80, or Honda S2000 to your heart's
+        content. Unbeatable Prices At BigTime, we believe that quality should
+        not come at a high cost. Our team is dedicated to sourcing high-quality
+        products from trusted manufacturers, ensuring that our customers receive
+        the best value for their investment. With our competitive pricing, even
+        the most budget-conscious car enthusiasts can find exactly what they
+        need. Exceptional Customer Support Customer satisfaction is our top
+        priority at BigTime. Our knowledgeable and friendly customer support
+        team is here to assist you with any questions or concerns you may have.
+        Whether you need help selecting the right part, tracking your order, or
+        seeking advice on installation, we're always just a message away. We
+        pride ourselves on providing exceptional service that turns first-time
+        buyers into loyal customers. Join the BigTime Family When you choose
+        BigTime, you're not just purchasing car equipment; you're joining a
+        community of passionate car enthusiasts. We celebrate the love for JDM
+        vehicles and are here to provide you with the support and products you
+        need to make your car truly special. Explore our collection today and
+        experience the BigTime difference!
+      </p>
+      <p>
+        Welcome to BigTime At BigTime, we understand that car
+        enthusiasts deserve high-quality equipment without breaking the bank.
+        Specializing in affordable car components, we cater specifically to fans
+        of JDM legends like the Nissan Skyline GTR R34, Toyota Supra A80, and
+        Honda S2000. Our mission is to provide top-notch mechanical, interior,
+        and exterior parts at unbeatable prices, ensuring your vehicle not only
+        performs at its best but looks great doing it. 
+        
+        <br><br>Our Product Range <br><br>
+        Mechanical Components BigTime offers a wide array of mechanical parts
+        designed for optimal performance and durability. From
+        performance-enhancing upgrades to essential replacement components, we
+        have everything you need to get your JDM dream car running smoothly.
+        Interior Elements Enhance your driving experience with our selection of
+        affordable interior components. Whether you're looking for stylish seat
+        covers, shift knobs, or custom floor mats, BigTime has the perfect
+        options to personalize and improve the comfort of your ride. Exterior
+        Accessories Make a statement on the road with our collection of exterior
+        parts and accessories. BigTime stocks everything from spoilers and body
+        kits to LED lighting and decals, allowing you to customize your Nissan
+        Skyline GTR R34, Toyota Supra A80, or Honda S2000 to your heart's
+        content. Unbeatable Prices At BigTime, we believe that quality should
+        not come at a high cost. Our team is dedicated to sourcing high-quality
+        products from trusted manufacturers, ensuring that our customers receive
+        the best value for their investment. With our competitive pricing, even
+        the most budget-conscious car enthusiasts can find exactly what they
+        need. Exceptional Customer Support Customer satisfaction is our top
+        priority at BigTime. Our knowledgeable and friendly customer support
+        team is here to assist you with any questions or concerns you may have.
+        Whether you need help selecting the right part, tracking your order, or
+        seeking advice on installation, we're always just a message away. We
+        pride ourselves on providing exceptional service that turns first-time
+        buyers into loyal customers. Join the BigTime Family When you choose
+        BigTime, you're not just purchasing car equipment; you're joining a
+        community of passionate car enthusiasts. We celebrate the love for JDM
+        vehicles and are here to provide you with the support and products you
+        need to make your car truly special. Explore our collection today and
+        experience the BigTime difference!
+      </p>
+      <p>
+        Welcome to BigTime At BigTime, we understand that car
+        enthusiasts deserve high-quality equipment without breaking the bank.
+        Specializing in affordable car components, we cater specifically to fans
+        of JDM legends like the Nissan Skyline GTR R34, Toyota Supra A80, and
+        Honda S2000. Our mission is to provide top-notch mechanical, interior,
+        and exterior parts at unbeatable prices, ensuring your vehicle not only
+        performs at its best but looks great doing it. 
+        
+        <br><br>Our Product Range <br><br>
+        Mechanical Components BigTime offers a wide array of mechanical parts
+        designed for optimal performance and durability. From
+        performance-enhancing upgrades to essential replacement components, we
+        have everything you need to get your JDM dream car running smoothly.
+        Interior Elements Enhance your driving experience with our selection of
+        affordable interior components. Whether you're looking for stylish seat
+        covers, shift knobs, or custom floor mats, BigTime has the perfect
+        options to personalize and improve the comfort of your ride. Exterior
+        Accessories Make a statement on the road with our collection of exterior
+        parts and accessories. BigTime stocks everything from spoilers and body
+        kits to LED lighting and decals, allowing you to customize your Nissan
+        Skyline GTR R34, Toyota Supra A80, or Honda S2000 to your heart's
+        content. Unbeatable Prices At BigTime, we believe that quality should
+        not come at a high cost. Our team is dedicated to sourcing high-quality
+        products from trusted manufacturers, ensuring that our customers receive
+        the best value for their investment. With our competitive pricing, even
+        the most budget-conscious car enthusiasts can find exactly what they
+        need. Exceptional Customer Support Customer satisfaction is our top
+        priority at BigTime. Our knowledgeable and friendly customer support
+        team is here to assist you with any questions or concerns you may have.
+        Whether you need help selecting the right part, tracking your order, or
+        seeking advice on installation, we're always just a message away. We
+        pride ourselves on providing exceptional service that turns first-time
+        buyers into loyal customers. Join the BigTime Family When you choose
+        BigTime, you're not just purchasing car equipment; you're joining a
+        community of passionate car enthusiasts. We celebrate the love for JDM
+        vehicles and are here to provide you with the support and products you
+        need to make your car truly special. Explore our collection today and
+        experience the BigTime difference!
+      </p>
+      <p>
+        Welcome to BigTime At BigTime, we understand that car
+        enthusiasts deserve high-quality equipment without breaking the bank.
+        Specializing in affordable car components, we cater specifically to fans
+        of JDM legends like the Nissan Skyline GTR R34, Toyota Supra A80, and
+        Honda S2000. Our mission is to provide top-notch mechanical, interior,
+        and exterior parts at unbeatable prices, ensuring your vehicle not only
+        performs at its best but looks great doing it. 
+        
+        <br><br>Our Product Range <br><br>
+        Mechanical Components BigTime offers a wide array of mechanical parts
+        designed for optimal performance and durability. From
+        performance-enhancing upgrades to essential replacement components, we
+        have everything you need to get your JDM dream car running smoothly.
+        Interior Elements Enhance your driving experience with our selection of
+        affordable interior components. Whether you're looking for stylish seat
+        covers, shift knobs, or custom floor mats, BigTime has the perfect
+        options to personalize and improve the comfort of your ride. Exterior
+        Accessories Make a statement on the road with our collection of exterior
+        parts and accessories. BigTime stocks everything from spoilers and body
+        kits to LED lighting and decals, allowing you to customize your Nissan
+        Skyline GTR R34, Toyota Supra A80, or Honda S2000 to your heart's
+        content. Unbeatable Prices At BigTime, we believe that quality should
+        not come at a high cost. Our team is dedicated to sourcing high-quality
+        products from trusted manufacturers, ensuring that our customers receive
+        the best value for their investment. With our competitive pricing, even
+        the most budget-conscious car enthusiasts can find exactly what they
+        need. Exceptional Customer Support Customer satisfaction is our top
+        priority at BigTime. Our knowledgeable and friendly customer support
+        team is here to assist you with any questions or concerns you may have.
+        Whether you need help selecting the right part, tracking your order, or
+        seeking advice on installation, we're always just a message away. We
+        pride ourselves on providing exceptional service that turns first-time
+        buyers into loyal customers. Join the BigTime Family When you choose
+        BigTime, you're not just purchasing car equipment; you're joining a
+        community of passionate car enthusiasts. We celebrate the love for JDM
+        vehicles and are here to provide you with the support and products you
+        need to make your car truly special. Explore our collection today and
+        experience the BigTime difference!
+      </p>
+      <p>
+        Welcome to BigTime At BigTime, we understand that car
+        enthusiasts deserve high-quality equipment without breaking the bank.
+        Specializing in affordable car components, we cater specifically to fans
+        of JDM legends like the Nissan Skyline GTR R34, Toyota Supra A80, and
+        Honda S2000. Our mission is to provide top-notch mechanical, interior,
+        and exterior parts at unbeatable prices, ensuring your vehicle not only
+        performs at its best but looks great doing it. 
+        
+        <br><br>Our Product Range <br><br>
+        Mechanical Components BigTime offers a wide array of mechanical parts
+        designed for optimal performance and durability. From
+        performance-enhancing upgrades to essential replacement components, we
+        have everything you need to get your JDM dream car running smoothly.
+        Interior Elements Enhance your driving experience with our selection of
+        affordable interior components. Whether you're looking for stylish seat
+        covers, shift knobs, or custom floor mats, BigTime has the perfect
+        options to personalize and improve the comfort of your ride. Exterior
+        Accessories Make a statement on the road with our collection of exterior
+        parts and accessories. BigTime stocks everything from spoilers and body
+        kits to LED lighting and decals, allowing you to customize your Nissan
+        Skyline GTR R34, Toyota Supra A80, or Honda S2000 to your heart's
+        content. Unbeatable Prices At BigTime, we believe that quality should
+        not come at a high cost. Our team is dedicated to sourcing high-quality
+        products from trusted manufacturers, ensuring that our customers receive
+        the best value for their investment. With our competitive pricing, even
+        the most budget-conscious car enthusiasts can find exactly what they
+        need. Exceptional Customer Support Customer satisfaction is our top
+        priority at BigTime. Our knowledgeable and friendly customer support
+        team is here to assist you with any questions or concerns you may have.
+        Whether you need help selecting the right part, tracking your order, or
+        seeking advice on installation, we're always just a message away. We
+        pride ourselves on providing exceptional service that turns first-time
+        buyers into loyal customers. Join the BigTime Family When you choose
+        BigTime, you're not just purchasing car equipment; you're joining a
+        community of passionate car enthusiasts. We celebrate the love for JDM
+        vehicles and are here to provide you with the support and products you
+        need to make your car truly special. Explore our collection today and
+        experience the BigTime difference!
+      </p>
+      <p>
+        Welcome to BigTime At BigTime, we understand that car
+        enthusiasts deserve high-quality equipment without breaking the bank.
+        Specializing in affordable car components, we cater specifically to fans
+        of JDM legends like the Nissan Skyline GTR R34, Toyota Supra A80, and
+        Honda S2000. Our mission is to provide top-notch mechanical, interior,
+        and exterior parts at unbeatable prices, ensuring your vehicle not only
+        performs at its best but looks great doing it. 
+        
+        <br><br>Our Product Range <br><br>
+        Mechanical Components BigTime offers a wide array of mechanical parts
+        designed for optimal performance and durability. From
+        performance-enhancing upgrades to essential replacement components, we
+        have everything you need to get your JDM dream car running smoothly.
+        Interior Elements Enhance your driving experience with our selection of
+        affordable interior components. Whether you're looking for stylish seat
+        covers, shift knobs, or custom floor mats, BigTime has the perfect
+        options to personalize and improve the comfort of your ride. Exterior
+        Accessories Make a statement on the road with our collection of exterior
+        parts and accessories. BigTime stocks everything from spoilers and body
+        kits to LED lighting and decals, allowing you to customize your Nissan
+        Skyline GTR R34, Toyota Supra A80, or Honda S2000 to your heart's
+        content. Unbeatable Prices At BigTime, we believe that quality should
+        not come at a high cost. Our team is dedicated to sourcing high-quality
+        products from trusted manufacturers, ensuring that our customers receive
+        the best value for their investment. With our competitive pricing, even
+        the most budget-conscious car enthusiasts can find exactly what they
+        need. Exceptional Customer Support Customer satisfaction is our top
+        priority at BigTime. Our knowledgeable and friendly customer support
+        team is here to assist you with any questions or concerns you may have.
+        Whether you need help selecting the right part, tracking your order, or
+        seeking advice on installation, we're always just a message away. We
+        pride ourselves on providing exceptional service that turns first-time
+        buyers into loyal customers. Join the BigTime Family When you choose
+        BigTime, you're not just purchasing car equipment; you're joining a
+        community of passionate car enthusiasts. We celebrate the love for JDM
+        vehicles and are here to provide you with the support and products you
+        need to make your car truly special. Explore our collection today and
+        experience the BigTime difference!
+      </p>
+      <p>
+        Welcome to BigTime At BigTime, we understand that car
+        enthusiasts deserve high-quality equipment without breaking the bank.
+        Specializing in affordable car components, we cater specifically to fans
+        of JDM legends like the Nissan Skyline GTR R34, Toyota Supra A80, and
+        Honda S2000. Our mission is to provide top-notch mechanical, interior,
+        and exterior parts at unbeatable prices, ensuring your vehicle not only
+        performs at its best but looks great doing it. 
+        
+        <br><br>Our Product Range <br><br>
+        Mechanical Components BigTime offers a wide array of mechanical parts
+        designed for optimal performance and durability. From
+        performance-enhancing upgrades to essential replacement components, we
+        have everything you need to get your JDM dream car running smoothly.
+        Interior Elements Enhance your driving experience with our selection of
+        affordable interior components. Whether you're looking for stylish seat
+        covers, shift knobs, or custom floor mats, BigTime has the perfect
+        options to personalize and improve the comfort of your ride. Exterior
+        Accessories Make a statement on the road with our collection of exterior
+        parts and accessories. BigTime stocks everything from spoilers and body
+        kits to LED lighting and decals, allowing you to customize your Nissan
+        Skyline GTR R34, Toyota Supra A80, or Honda S2000 to your heart's
+        content. Unbeatable Prices At BigTime, we believe that quality should
+        not come at a high cost. Our team is dedicated to sourcing high-quality
+        products from trusted manufacturers, ensuring that our customers receive
+        the best value for their investment. With our competitive pricing, even
+        the most budget-conscious car enthusiasts can find exactly what they
+        need. Exceptional Customer Support Customer satisfaction is our top
+        priority at BigTime. Our knowledgeable and friendly customer support
+        team is here to assist you with any questions or concerns you may have.
+        Whether you need help selecting the right part, tracking your order, or
+        seeking advice on installation, we're always just a message away. We
+        pride ourselves on providing exceptional service that turns first-time
+        buyers into loyal customers. Join the BigTime Family When you choose
+        BigTime, you're not just purchasing car equipment; you're joining a
+        community of passionate car enthusiasts. We celebrate the love for JDM
+        vehicles and are here to provide you with the support and products you
+        need to make your car truly special. Explore our collection today and
+        experience the BigTime difference!
+      </p>
     </div>
   </main>
 </template>
@@ -96,32 +376,32 @@ export default {};
 
 .primary-header,
 .hero {
-  --parallax-speed: 15;
+  --parallax-speed: 25;
   z-index: 10;
   color: white;
 }
 
 .parallax__lightningLeft {
-  --parallax-speed: 5;
+  --parallax-speed: 20;
   z-index: 3;
   width: 100%;
 }
 
 .parallax__rightLightning {
-  --parallax-speed: 9;
+  --parallax-speed: 34;
   z-index: 4;
   width: 100%;
 }
 
 .parallax__car {
-  --parallax-speed: 27;
+  --parallax-speed: 52;
   z-index: 5;
   width: 80%;
   margin-left: 13%;
 }
 
 .parallax__smoke {
-  --parallax-speed: 22;
+  --parallax-speed: 50;
   z-index: 3;
   width: 100%;
 }

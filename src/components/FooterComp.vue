@@ -30,13 +30,10 @@
       </div>
   
       <div class="footerBottom py-3">
-        <div class="row">
-          <div class="col-12 text-center">
-            <p class="lead">
-              BigTime &copy; <span>{{ cYear }}</span>
-            </p>
-          </div>
-        </div>
+        <p class="lead text-center">
+          BigTime &copy; <span>{{ cYear }}</span>
+        </p>
+
       </div>
     </div>
   </template>

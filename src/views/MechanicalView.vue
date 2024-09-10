@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="n">
     <h1>Products</h1>
     <div class="container">
       <!-- Show Spinner while loading -->
@@ -11,7 +11,7 @@
         <h1>Mechanical Parts</h1>
         <div class="row">
           <div
-            class="col-md-3 mb-4"
+            class="col-md-4 col-lg-3 mb-4"
             v-for="mech in $store.state.mech"
             :key="mech.mechanicalPartID"
           >
@@ -30,9 +30,8 @@
                 <p>Price: {{ mech.price }}</p>
               </template>
               <template #cardButton>
-                <div class="d-flex justify-content-between">
-                <button @click="purchase(mech.mechanicalPartID)" id="black">Purchase</button>
-              
+                <div class="d-flex justify-content-start">
+                <button @click="addToCart(x)" id="black">Purchase</button>
                 </div>
               </template>
               <template #cardButton2>
@@ -89,6 +88,9 @@ onMounted(() => {
 
 
 <style scoped>
+.n{
+  background-color: rgb(240, 240, 240);
+}
 #black {
   color: black;
   border: none;
@@ -96,5 +98,6 @@ onMounted(() => {
 }
 h1 {
   text-align: center;
+  color: black;
 }
 </style>

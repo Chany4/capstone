@@ -3,10 +3,12 @@ import axios from 'axios'
 import { toast } from 'vue3-toastify';
 import "vue3-toastify/dist/index.css";
 import IntExtSingle from '@/views/IntExtSingle.vue';
-import { useCookies } from 'vue-cookies'
+import { useCookies } from 'vue3-cookies'
 import router from '@/router';
-const apiURL = 'https://capstone-jm4p.onrender.com/'
-// const apiURL = 'http://localhost:9001/'
+const {cookies} = useCookies()
+import Swal from 'sweetalert2'
+// const apiURL = 'https://capstone-jm4p.onrender.com/'
+const apiURL = 'http://localhost:9001/'
 
 const msg = 'Product not found'
 
@@ -15,11 +17,14 @@ const msg = 'Product not found'
 export default createStore({
   state: {
     users: null,
+    user:null,
     mech:null,
     mechSingle:null,
     intExt:null,
     IntExtSingle:null,
-    cart:[]
+    carts:[],
+    login: false,
+    // cart:JSON.parse($cookies.get("cart")) || []
   },
   getters: {
   },
@@ -28,7 +33,7 @@ export default createStore({
       state.users = payload
     },
     setSingleUser(state, payload){
-      state.users = payload
+      state.user = payload
     },
     setAddUser(state, payload){
       state.users = payload
@@ -44,19 +49,12 @@ export default createStore({
     },
     setIntExtSingle(state,payload){
       state.IntExtSingle= payload
+    },setCarts(state,value){
+      state.carts = value
     },
-    ADD_TO_CART(state, item) {
-      const cartItem = state.cart.find((cartItem) => cartItem.id === item.id);
-      if (cartItem) {
-        cartItem.quantity += 1;
-      } else {
-        state.cart.push({ ...item, quantity: 1 });
-      }
-    },
-    REMOVE_FROM_CART(state, itemId) {
-      state.cart = state.cart.filter(item => item.id !== itemId);
+    setLogin(state,data){
+      state.login = data
     }
-
   },
   actions: {
     // users
@@ -68,10 +66,9 @@ export default createStore({
         console.log(results);
         
       } catch (error) {
-        toast.error(`Ooops something `, {
+        toast.error(`Ooops something went wrong`, {
           autoClose : 3000,
           position : 'bottom-center'
-
         })
       }
       },
@@ -95,6 +92,24 @@ export default createStore({
         })
       }
       },
+      async deleteUser(context, userID) {
+        try {
+            const response = await axios.delete(`${apiURL}users/delete/${userID}`);
+            console.log(response.data); // Log the entire response data to inspect into structure
+    
+            const { message, err } = response.data;
+    
+            if (message) {
+              console.log(message);
+              context.dispatch('fetchUsers');
+            }
+        } catch (e) {
+            toast.error(e.message, {
+              autoClose: 2000,
+              position: toast.POSITION.BOTTOM_CENTER
+            });
+        }
+    },
 
       // mechanical
 
@@ -173,56 +188,161 @@ export default createStore({
         },
 
         // login
+
         
-        async loginUser({commit}, info) {
+        async loginUser({commit}, currentUser) {
          
           try{
-            console.log('yayo', info);
-            let data = await axios.post(`${apiURL}bigTime/login`, info)
-          console.log(data);
-          $cookies.set('token', data.token) 
-          if (data.message) {
-            toast("Login was success!", {
-              "theme": "auto",
-              "type": "default",
-            "position": "top-center",
-              "dangerouslyHTMLString": true
+            console.log('yayo', currentUser);
+            let {message, token, user} = await (await axios.post(`${apiURL}bigTime/login`, currentUser)).data
+          console.log({message, token, user});
+          cookies.set('userInfo', {message, token, user}) 
+          commit('setSingleUser', user)
+          if (user) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Login Successful!',
+              text: message,
+              showConfirmButton: true,
+              timer: 1500 
             })
           }     
           router.push('/') 
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
           // location.reload()
+
+          commit('setLogin', true);
           }
-          catch(error){
-            // `Ooops there was an error with logging in `
-            toast.error(error.message, {
-              autoClose : 1000,
-              position : 'bottom-center'
-            })
-      
-            
+          catch (error) {
+            if (error.response && error.response.status === 401) {
+              Swal.fire({
+                icon: 'error',
+                title: 'Login Failed!',
+                text: 'Please enter correct credentials.',
+                confirmButtonText: 'OK'
+              });
+            } else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Login Failed!',
+                text: 'An unexpected error occurred. Please try again later.',
+                confirmButtonText: 'OK'
+              });
+            }
           }
           
         },
 
+
+
+
+        // async loginUser({commit}, info) {
+         
+        //   try{
+        //     console.log('yayo', info);
+        //     let data = await axios.post(`${apiURL}bigTime/login`, info)
+        //   console.log(data);
+        //   $cookies.set('token', data.token) 
+        //   commit('setSingleUser', data)
+        //   if (data.message) {
+        //     toast("Login was success!", {
+        //       "theme": "auto",
+        //       "type": "default",
+        //     "position": "top-center",
+        //       "dangerouslyHTMLString": true
+        //     })
+        //   }     
+        //   router.push('/') 
+        //   // location.reload()
+        //   }
+        //   catch(error){
+        //     // `Ooops there was an error with logging in `
+        //     toast.error(error.message, {
+        //       autoClose : 1000,
+        //       position : 'bottom-center'
+        //     })
+      
+            
+        //   }
+          
+        // },
+
         // cart
-        
-        async addToCartMech({ commit }, mechanicalPartID) {
-          // console.log('test');
-          
-          try {
-            let { data } = await axios.post(`${apiURL}bigTime/cartMech`, { id: mechanicalPartID });
-            console.log('Added to cart: ', data);
-            console.log('Mechanical Part ID:', mechanicalPartID);
-          } catch (error) {
-            console.error('Error adding to cart:', error);
-          }
+
+        addToCart(state,cart){
+          state.cart.push(cart);
         },
-        async addToCartIntExt({commit}, interiorExteriorID) {
-          let {data} = await axios.post(`${apiURL}bigTime/cart2`, {id: interiorExteriorID})
-          console.log(data);
-          console.log(interiorExteriorID);
-          
+        removeFromCart(state,itemId){
+          state
         },
+        toCart({commit},game){
+          commit('addToCart', game);
+          $cookies.set("cart",JSON.stringify(this.state.cart));
+        },
+
+
+
+
+
+
+
+        // async getCart({commit},userID) {
+        //   let {data} = await axios.get(carts+'/'+userID)
+        //   console.log(data);
+        //   commit('setCarts',data)
+        //  },
+
+
+// add to cart 
+        // async addToCartMech({ commit }, mechanicalPartID) {
+        //   // console.log('test');
+          
+        //   try {
+        //     let { data } = await axios.post(`${apiURL}bigTime/addcartMech`, { id: mechanicalPartID });
+        //     console.log('Added to cart: ', data);
+        //     console.log('Mechanical Part ID:', mechanicalPartID);
+        //   } catch (error) {
+        //     console.error('Error adding to cart:', error);
+        //   }
+        // },
+
+        // async deleteFromCart({commit},mechanicalPartID){
+        //   try{
+        //     let { data } = await axios.post(`${apiURL}bigTime/deleteFromCartMech`, { id: cart_id });
+        //     console.log('Removed from cart: ', data);
+        //     console.log('Mechanical Part ID:', mechanicalPartID);
+        //   }
+        //   catch(error){
+        //     console.log(error);
+        //   }
+        // },
+
+        // async purchas({commit},UserID) {
+        //   let {data} = await axios.delete(`${apiURL}/bigTime//${id}`)
+        //   // commit('setCart', data)
+        //   console.log(data);
+        //   Swal.fire({
+        //     title: 'Purchase',
+        //     text: `Thank you for your purchase`,
+        //     icon: "success",
+        //     timer:"1000"
+    
+          
+          
+        //   })
+        //   commit('set',data)
+        //   // window.location.reload()
+        //  }
+
+
+        // async addToCartIntExt({commit}, interiorExteriorID) {
+        //   let {data} = await axios.post(`${apiURL}bigTime/cart2`, {id: interiorExteriorID})
+        //   console.log(data);
+        //   console.log(interiorExteriorID);
+          
+        // },
 
 
     },

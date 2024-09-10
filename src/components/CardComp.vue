@@ -58,7 +58,7 @@ export default {};
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: rgb(108, 98, 98);
+  background-color:white;
   border-radius: 10px;
   display: flex;
   padding: 10px 30px;
@@ -69,6 +69,11 @@ export default {};
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-right: 32px;
+}
+
+.card:hover{
+  scale: 1.028;
+  transition: 0.34s ease-in;
 }
 
 .heading {

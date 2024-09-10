@@ -10,6 +10,7 @@ import InteriorExteriorView from '@/views/InteriorExteriorView.vue'
 import ProductSingleView from '@/views/MechanicalSingle.vue'
 import IntExtSingle from '@/views/IntExtSingle.vue'
 import LoginView from '@/views/LoginView.vue'
+import UserDetails from '@/views/UserDetails.vue'
 
 const routes = [
   {
@@ -68,6 +69,16 @@ const routes = [
     path: '/login',
     name:'login',
     component: LoginView
+  },
+  {
+    path: '/logout',
+    name: 'logout',
+    component: ()=> import('@/views/HomeView.vue')
+  },
+  {
+    path:'/user',
+    name:'user',
+    component: UserDetails
   }
 ]
 

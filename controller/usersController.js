@@ -44,9 +44,19 @@ const removeUser = async (req, res) => {
 const loginUser = (req, res) => {
     res.json({
         message: 'You have signed in successfully!', 
-        token: req.body.token
+        token: req.body.token,
+        user: req.body.user
     })
 }
 
+
+// postLogin: async (req, res) => {
+//         const { emailAdd, userPass } = req.body;
+    
+//         await login(emailAdd, userPass);
+//         res.send();
+//     },
+
+    
 
 export{fetchUsers,fetchUser,addUser,removeUser,updateUser,loginUser}

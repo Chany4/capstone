@@ -18,7 +18,6 @@ const getUserDB = async (id) => {
 
 const getUserDbByEmail = async (emailAdd) => {
     let [[data]] = await pool.query('SELECT * FROM users WHERE emailAdd =?' , [emailAdd])
-    console.log('get user by email: ', data);
     
     return data?data:''
 }
@@ -41,6 +40,23 @@ const updateUserDB = async (firstName, lastName, userAge, Gender, userRole, emai
 const removeUserDB = async (id) => {
     await pool.query(`DELETE FROM users WHERE userID = ?`, [id])
 }
+
+
+// const login = async (emailAdd) => {
+//   try {
+//     const [[{ userPass }]] = await pool.query(`
+//       SELECT userPass 
+//       FROM users 
+//       WHERE emailAdd = ?
+//     `, [emailAdd]);
+    
+//     return userPass;
+//   } catch (error) {
+//     console.error("Error occurred during login:", error);
+//     throw new Error("An error occurred during login. Please try again later.");
+//   }
+// };
+
 
 
 export{getUsersDB,getUserDB,addUserDB,removeUserDB,updateUserDB,getUserDbByEmail}

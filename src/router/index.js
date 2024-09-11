@@ -11,7 +11,8 @@ import ProductSingleView from '@/views/MechanicalSingle.vue'
 import IntExtSingle from '@/views/IntExtSingle.vue'
 import LoginView from '@/views/LoginView.vue'
 import UserDetails from '@/views/UserDetails.vue'
-
+import { useCookies } from 'vue3-cookies'
+const {cookies} = useCookies()
 const routes = [
   {
     path: '/',
@@ -73,11 +74,22 @@ const routes = [
   {
     path: '/logout',
     name: 'logout',
-    component: ()=> import('@/views/HomeView.vue'),
+    component: ()=>import('@/views/LoginView.vue'),
     beforeEnter(){
-      useCookies.remove('userInfo')
+      cookies.remove('userInfo')
       // ask joel about the rest
-      location.reload('/')
+      router.push({name: 'login'})
+      // location.reload()
+
+//       path: '/logout',
+// name: 'logout',
+// component: () => import('@/views/HomeView.vue'),
+// beforeEnter(to, from, next) { 
+//   useCookies.remove('userInfo'); // Remove the cookie
+
+//   // Redirect to login page after removing the cookie
+//   next({ name: 'login' });
+// }
     }
   },
   {

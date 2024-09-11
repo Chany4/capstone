@@ -2,8 +2,11 @@
   <div>
     <!-- USERS TABLE -->
     <br />
-    <router-link to='/login'><button id="log-in-button" class=" mt-3">Log Out</button></router-link>
+   <div class="row">
+    <router-link to='/logout'><button id="log-in-button" class=" mt-3" @click="logOutUser()">Log Out</button></router-link><br>
+    <router-link to='/user'><button id="log-in-button2" class=" mt-3" >View Profile</button></router-link>
     <br>
+   </div>
     <h2 class="text-center">Users Table</h2>
     <br />
 
@@ -37,6 +40,25 @@
             >
               <addUser :user="user" />
               <updateUser :user="user" />
+              <!-- add -->
+              <button
+                class="btn btn-outline-danger deleteButton"
+                @click="(event) => deleteUser(user.userID)"
+              >
+              <i class="bi bi-person-plus"></i>
+              </button>
+
+
+              <!-- update -->
+              <button
+                class="btn btn-outline-danger deleteButton"
+                @click="(event) => deleteUser(user.userID)"
+              >
+              <i class="bi bi-pencil-square"></i>
+              </button>
+
+
+              <!-- delete -->
               <button
                 class="btn btn-outline-danger deleteButton"
                 @click="(event) => deleteUser(user.userID)"
@@ -88,9 +110,25 @@
             >
               <addProduct :product="product" />
               <updateProduct :product="product" />
+              <!-- add -->
               <button
                 class="btn btn-outline-danger deleteButton"
                 @click="(event) => deleteProduct(product.productID)"
+              >
+              <i class="bi bi-plus-square"></i>
+              </button>
+
+              <!-- update -->
+              <button
+                class="btn btn-outline-danger deleteButton"
+                @click="(event) => deleteProduct(product.productID)"
+              >
+              <i class="bi bi-pencil-square"></i>
+              </button>
+              <!-- delete -->
+              <button
+                class="btn btn-outline-danger deleteButton"
+                @click="(event) => deleteProduct(product.mechanicalPartID)"
               >
                 <i class="bi bi-trash-fill"></i>
               </button>
@@ -120,8 +158,31 @@ export default {
     deleteUser(userID) {
       this.$store.dispatch('deleteUser', userID);
     },
-    deleteProduct(productID) {
-      this.$store.dispatch('deleteProduct', productID);
+    deleteProduct(mechanicalPartID) {
+      this.$store.dispatch('deleteMech', mechanicalPartID);
+    },
+    updateUser(userID){
+      this.$store.dispatch('updateUser',userID)
+    },
+    updateProduct(productID){
+      this.$store.dispatch('')
+    },
+    addUser(){
+      this.$store.dispatch('addUser')
+    },
+    addProduct(){
+      this.$store.dispatch('addUser')
+    },logOutUser() {
+      // Add your custom logout logic here, e.g., clearing Vuex state, removing cookies, etc.
+      
+      Swal.fire({
+        title: "Logged Out! Refresh Page",
+        text: "You have been logged out. Please refresh the page.",
+        icon: "success",
+        showConfirmButton: true
+      });
+      
+      this.$store.dispatch('logout'); // Make sure you have a logout action in your store
     }
   }
 };
@@ -133,6 +194,11 @@ h2 {
 
 .table {
   margin-top: 20px;
+  width: 100%;
+}
+
+tr{
+  min-width: fit-content;
 }
 
 th,
@@ -166,7 +232,23 @@ td {
     border-radius: 25px;
     border: 2px solid rgb(0, 0, 136);
     position: fixed;
-    top: 10%; 
+    top: 13%; 
+    right: 0;
+    margin-top: 20px;
+    margin: 10px;
+    z-index: 1;
+    color: rgb(1, 0, 76);
+    font-weight: bolder;
+    text-align: 5px 2px 5px black;
+}
+#log-in-button2{
+    width: 152px;
+    height: 44px;
+    background-color: rgb(226, 226, 255);
+    border-radius: 25px;
+    border: 2px solid rgb(0, 0, 136);
+    position: fixed;
+    top: 20%; 
     right: 0;
     margin-top: 20px;
     margin: 10px;

@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 import { toast } from 'vue3-toastify';
 import "vue3-toastify/dist/index.css";
-import IntExtSingle from '@/views/IntExtSingle.vue';
 import { useCookies } from 'vue3-cookies'
 import router from '@/router';
 const {cookies} = useCookies()
@@ -59,7 +58,7 @@ export default createStore({
   actions: {
     // users
     async fetchUsers(context) {
-      console.log('here');
+      console.log('fetching users');
       try {
         const results = await (await axios.get(`${apiURL}bigTime/getUsers`)).data;
         context.commit('setUsers', results) 
@@ -72,7 +71,20 @@ export default createStore({
         })
       }
       },
-      
+      // single user
+      async fetchSingleUser({commit},id){
+        try{
+        const results = await (await axios.get(`${apiURL}bigTime/getUser/${id}`)).data;
+        commit('setSingleUser', results) 
+        }catch(error){
+          toast.error(error, {
+            autoClose : 3000,
+            position : 'bottom-center'
+          })
+        }
+        
+      },
+      // add user
     async addUser({commit}, info) {
       console.log(info);
       try {
@@ -93,7 +105,8 @@ export default createStore({
       }
       },
 
-      // delete works but doesn't show pop up message , only shows when page is refreshed 
+      // delete user
+      // delete works but doesn't show pop up message , only shows when page is refreshed  --> ask matthew 
       async deleteUser(context, id) {
         try {
             const response = await axios.delete(`${apiURL}bigTime/removeUser/${id}`);
@@ -118,11 +131,12 @@ export default createStore({
             });
         }
     },
+
+    // update user 
     async updateUser(context, id) {
       console.log(id);
-      
       try {
-        const { message, err } = await (await axios.patch(`${apiURL}users/updateUser/${id.userID}`, id)).data
+        const { message, err } = await (await axios.patch(`${apiURL}bigTime/updateUser/${id}`)).data
         if (message) {
           context.dispatch('fetchUsers')
         } else {
@@ -139,7 +153,7 @@ export default createStore({
       }
     },
 
-      // mechanical
+      // mechanical get all
 
     async fetchMech(context) {
       console.log('hii');
@@ -155,6 +169,8 @@ export default createStore({
         })
       }
       },
+      
+      // fetch single mechanical
     async fetchMechSingle({commit},id) {
       console.log('Fetching single mechanical part...');
       try {
@@ -176,6 +192,99 @@ export default createStore({
         })
       }
       },
+
+      // delete mechanical by ID
+       // delete works but doesn't show pop up message , only shows when page is refreshed  --> ask matthew 
+      async deleteMech(context, id) {
+        try {
+          const response = await axios.delete(`${apiURL}bigTime/mech/${id}`);
+          console.log(response.data); // Log the entire response to inspect its structure
+          const { message, err } = response.data;
+      
+          if (message) {
+            console.log(message);
+            context.dispatch('fetchMech'); // Correctly dispatch the fetchMech action
+            Swal.fire({
+              title: "Good job!",
+              text: "Product was deleted successfully!",
+              icon: "success"
+            });
+          } else if (err) {
+            console.log(err);
+            Swal.fire({
+              title: "Error!",
+              text: err || "Something went wrong.",
+              icon: "error"
+            });
+          }
+        } catch (e) {
+          Swal.fire({
+            title: "Error!",
+            text: e.message || "An unexpected error occurred.",
+            icon: "error",
+            timer: 2000
+          });
+        }
+      },
+
+      // add Mechanical
+
+      async addMech({commit}, info) {
+        console.log(info);
+        try {
+          const results = await (await axios.post(`${apiURL}bigTime/addMechanic`,info)).data;
+          console.log(results);
+          toast("Product was added", {
+            "theme": "auto",
+            "type": "default",
+            "dangerouslyHTMLString": true
+          })
+          
+        } catch (error) {
+          toast.error(`Ooops something wentt wrong `, {
+            autoClose : 3000,
+            position : 'bottom-center'
+  
+          })
+        }
+        },
+
+        // update Mechanical
+
+        async updateMech(context, id) {
+          console.log(id);
+          try {
+            const { message, err } = await (await axios.patch(`${apiURL}bigTime/mech/${id}`)).data
+            if (message) {
+              context.dispatch('fetchMech')
+            } else {
+              toast.error(`${err}`, {
+                autoClose: 2000,
+                position: toast.POSITION.BOTTOM_CENTER
+              })
+            }
+          } catch (e) {
+            toast.error(`${e.message}`, {
+              autoClose: 2000,
+              position: toast.POSITION.BOTTOM_CENTER
+            })
+          }
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
       // Interior and Exterior 
 
@@ -221,7 +330,7 @@ export default createStore({
         async loginUser({commit}, currentUser) {
          
           try{
-            console.log('yayo', currentUser);
+            alert('wait a moment we are logging you in, this might take a while, if it takes longer than expected, reload the page and try again, if login failed the you have exceeded your maximum amount of connections')
             let {message, token, user} = await (await axios.post(`${apiURL}bigTime/login`, currentUser)).data
           console.log({message, token, user});
           cookies.set('userInfo', {message, token, user}) 
@@ -234,6 +343,8 @@ export default createStore({
               showConfirmButton: true,
               timer: 1500 
             })
+          }else{
+            alert('we are logging you in, this might take a while')
           }     
           router.push('/') 
           setTimeout(() => {
@@ -263,39 +374,10 @@ export default createStore({
           
         },
 
-
-
-
-        // async loginUser({commit}, info) {
-         
-        //   try{
-        //     console.log('yayo', info);
-        //     let data = await axios.post(`${apiURL}bigTime/login`, info)
-        //   console.log(data);
-        //   $cookies.set('token', data.token) 
-        //   commit('setSingleUser', data)
-        //   if (data.message) {
-        //     toast("Login was success!", {
-        //       "theme": "auto",
-        //       "type": "default",
-        //     "position": "top-center",
-        //       "dangerouslyHTMLString": true
-        //     })
-        //   }     
-        //   router.push('/') 
-        //   // location.reload()
-        //   }
-        //   catch(error){
-        //     // `Ooops there was an error with logging in `
-        //     toast.error(error.message, {
-        //       autoClose : 1000,
-        //       position : 'bottom-center'
-        //     })
+        logout(){
+          alert('please refresh the page')
+        },
       
-            
-        //   }
-          
-        // },
 
         // cart
 
@@ -309,68 +391,6 @@ export default createStore({
           commit('addToCart', game);
           $cookies.set("cart",JSON.stringify(this.state.cart));
         },
-
-
-
-
-
-
-
-        // async getCart({commit},userID) {
-        //   let {data} = await axios.get(carts+'/'+userID)
-        //   console.log(data);
-        //   commit('setCarts',data)
-        //  },
-
-
-// add to cart 
-        // async addToCartMech({ commit }, mechanicalPartID) {
-        //   // console.log('test');
-          
-        //   try {
-        //     let { data } = await axios.post(`${apiURL}bigTime/addcartMech`, { id: mechanicalPartID });
-        //     console.log('Added to cart: ', data);
-        //     console.log('Mechanical Part ID:', mechanicalPartID);
-        //   } catch (error) {
-        //     console.error('Error adding to cart:', error);
-        //   }
-        // },
-
-        // async deleteFromCart({commit},mechanicalPartID){
-        //   try{
-        //     let { data } = await axios.post(`${apiURL}bigTime/deleteFromCartMech`, { id: cart_id });
-        //     console.log('Removed from cart: ', data);
-        //     console.log('Mechanical Part ID:', mechanicalPartID);
-        //   }
-        //   catch(error){
-        //     console.log(error);
-        //   }
-        // },
-
-        // async purchas({commit},UserID) {
-        //   let {data} = await axios.delete(`${apiURL}/bigTime//${id}`)
-        //   // commit('setCart', data)
-        //   console.log(data);
-        //   Swal.fire({
-        //     title: 'Purchase',
-        //     text: `Thank you for your purchase`,
-        //     icon: "success",
-        //     timer:"1000"
-    
-          
-          
-        //   })
-        //   commit('set',data)
-        //   // window.location.reload()
-        //  }
-
-
-        // async addToCartIntExt({commit}, interiorExteriorID) {
-        //   let {data} = await axios.post(`${apiURL}bigTime/cart2`, {id: interiorExteriorID})
-        //   console.log(data);
-        //   console.log(interiorExteriorID);
-          
-        // },
 
 
     },

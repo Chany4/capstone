@@ -32,7 +32,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="user ID"
-                  v-model="payload.userID"
+                  v-model="userID"
                 />
               </div>
               <div class="mb-3">
@@ -40,7 +40,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="first name"
-                  v-model="payload.firstName"
+                  v-model="firstName"
                 />
               </div>
               <div class="mb-3">
@@ -48,7 +48,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="last name"
-                  v-model="payload.lastName"
+                  v-model="lastName"
                 />
               </div>
               <div class="mb-3">
@@ -56,7 +56,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="user age"
-                  v-model="payload.userAge"
+                  v-model="userAge"
                 />
               </div>
               <div class="mb-3">
@@ -64,7 +64,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="gender"
-                  v-model="payload.gender"
+                  v-model="Gender"
                 />
               </div>
               <div class="mb-3">
@@ -72,7 +72,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="user role"
-                  v-model="payload.userRole"
+                  v-model="userRole"
                 />
               </div>
               <div class="mb-3">
@@ -80,7 +80,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="email address"
-                  v-model="payload.emailAdd"
+                  v-model="emailAdd"
                 />
               </div>
               <div class="mb-3">
@@ -88,7 +88,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="user password"
-                  v-model="payload.userPass"
+                  v-model="userPass"
                 />
               </div>
               <div class="mb-3">
@@ -96,7 +96,7 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="user profile"
-                  v-model="payload.userProfile"
+                  v-model="userProfile"
                 />
               </div>
               <div class="modal-footer">
@@ -124,30 +124,35 @@
   </template>
   
   <script>
+// import { toast } from 'vue3-toastify/index';
+
   export default {
-    name: "addProduct",
+    name: "addUser",
     data() {
       return {
-        payload: {
           userID: "",
           firstName: "",
           lastName: "",
           userAge: "",
-          gender: "",
+          Gender: "",
           userRole: "",
           emailAdd: "",
           userPass: "",
           userProfile: "",
-        },
-      };
-    },
+        };
+      },
+  
     methods: {
         addingUser() {
           try {
-            this.$store.dispatch("register", this.payload);
-            location.reload()
+            this.$store.dispatch("addUser");
+            // location.reload()
           } catch (error) {
-            console.error(error);
+            toast(error, {
+          "theme": "auto",
+          "type": "default",
+          "dangerouslyHTMLString": true
+        })
           }
         },
       },

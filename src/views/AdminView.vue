@@ -9,6 +9,7 @@
    </div>
     <h2 class="text-center">Users Table</h2>
     <br />
+    
 
     <div class="container table-responsive">
       <table class="table table-striped table-hover">
@@ -38,24 +39,13 @@
             <td
               class="d-flex justify-content-between align-items-center flex-column flex-md-row gap-2"
             >
-              <addUser :user="user" />
-              <updateUser :user="user" />
+             
               <!-- add -->
-              <button
-                class="btn btn-outline-danger deleteButton"
-                @click="(event) => deleteUser(user.userID)"
-              >
-              <i class="bi bi-person-plus"></i>
-              </button>
-
-
+              <addUser :user="user" />
               <!-- update -->
-              <button
-                class="btn btn-outline-danger deleteButton"
-                @click="(event) => deleteUser(user.userID)"
-              >
-              <i class="bi bi-pencil-square"></i>
-              </button>
+
+              <updateUser :user="user" />
+               <!-- <updateUser/> -->
 
 
               <!-- delete -->
@@ -113,7 +103,7 @@
               <!-- add -->
               <button
                 class="btn btn-outline-danger deleteButton"
-                @click="(event) => deleteProduct(product.productID)"
+                @click="(event) => addProduct"
               >
               <i class="bi bi-plus-square"></i>
               </button>
@@ -140,7 +130,14 @@
   </div>
 </template>
 <script>
+
+import AddUser from '@/components/AddUser.vue';
+import updateUser from '@/components/UserUpdateModal.vue'
+
 export default {
+  components:{
+    AddUser
+  },
   computed: {
     products() {
       return this.$store.state.mech;

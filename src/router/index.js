@@ -73,7 +73,12 @@ const routes = [
   {
     path: '/logout',
     name: 'logout',
-    component: ()=> import('@/views/HomeView.vue')
+    component: ()=> import('@/views/HomeView.vue'),
+    beforeEnter(){
+      useCookies.remove('userInfo')
+      // ask joel about the rest
+      location.reload('/')
+    }
   },
   {
     path:'/user',

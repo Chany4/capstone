@@ -79,7 +79,7 @@ export default {
   margin: 0;
   background: #111;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: relative;
   border: none;
   overflow: hidden;

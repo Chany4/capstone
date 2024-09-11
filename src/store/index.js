@@ -7,8 +7,8 @@ import { useCookies } from 'vue3-cookies'
 import router from '@/router';
 const {cookies} = useCookies()
 import Swal from 'sweetalert2'
-// const apiURL = 'https://capstone-jm4p.onrender.com/'
-const apiURL = 'http://localhost:9001/'
+const apiURL = 'https://capstone-jm4p.onrender.com/'
+// const apiURL = 'http://localhost:9001/'
 
 const msg = 'Product not found'
 
@@ -92,16 +92,24 @@ export default createStore({
         })
       }
       },
-      async deleteUser(context, userID) {
+
+      // delete works but doesn't show pop up message , only shows when page is refreshed 
+      async deleteUser(context, id) {
         try {
-            const response = await axios.delete(`${apiURL}users/delete/${userID}`);
+            const response = await axios.delete(`${apiURL}bigTime/removeUser/${id}`);
             console.log(response.data); // Log the entire response data to inspect into structure
-    
             const { message, err } = response.data;
-    
             if (message) {
               console.log(message);
-              context.dispatch('fetchUsers');
+              context.commit('fetchUsers');
+              Swal.fire({
+                title: "Good job!",
+                text: "User was deleted successfully!",
+                icon: "success"
+              });
+            }else{
+              console.log(err);
+              
             }
         } catch (e) {
             toast.error(e.message, {
@@ -109,6 +117,26 @@ export default createStore({
               position: toast.POSITION.BOTTOM_CENTER
             });
         }
+    },
+    async updateUser(context, id) {
+      console.log(id);
+      
+      try {
+        const { message, err } = await (await axios.patch(`${apiURL}users/updateUser/${id.userID}`, id)).data
+        if (message) {
+          context.dispatch('fetchUsers')
+        } else {
+          toast.error(`${err}`, {
+            autoClose: 2000,
+            position: toast.POSITION.BOTTOM_CENTER
+          })
+        }
+      } catch (e) {
+        toast.error(`${e.message}`, {
+          autoClose: 2000,
+          position: toast.POSITION.BOTTOM_CENTER
+        })
+      }
     },
 
       // mechanical

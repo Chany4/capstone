@@ -8,30 +8,47 @@
 
     <div class="home container-fluid">
       <div class="home-content row d-flex justify-content-around">
-        <div class="col-md-4 x">product display</div>
-        <div class="col-md-4 x">product display</div>
-        <div class="col-md-4 x">product display</div>
+        <h2>Check Out our amazing Range of products</h2>
+        <div class="col-md-4 productDisplay1 x">
+          <div class="text">
+            <span><strong>Tyres</strong></span>
+          </div>
+        </div>
+        <div class="col-md-4 productDisplay2 x">
+          <div class="text2">
+            <span><strong>Engine Parts</strong></span>
+          </div>
+        </div>
+        <div class="col-md-4 productDisplay3 x">
+          <div class="text3">
+            <span><strong>Tools</strong></span>
+          </div>
+        </div>
       </div>
 
       <div class="row c">
-      <p>Banner</p>
+        <p>Banner</p>
       </div>
 
       <div class="row d-flex justify-content-center">
         <div class="col-12 row d-flex justify-content-center">
-          <h2>Best Sellers</h2>
+          <h2>Best Sellers</h2><br><br>
+          <span>No one can beat our amazing prices</span>
         </div>
         <div class="col-md-3 y">heyo</div>
         <div class="col-md-3 y">heyo</div>
         <div class="col-md-3 y">heyo</div>
         <div class="col-md-3 y">heyo</div>
       </div>
-      <h2>Ready to Upgrade Your Ride? Click Below to Join the BigTime Revolution!</h2>
-      <router-link to="/login"><button>hiii</button></router-link>
 
+      <div class="row">
+
+      </div>
+      <h2>
+        Ready to Upgrade Your Ride? Click Below to Join the BigTime Revolution!
+      </h2>
+      <router-link to="/login"><button>Log in </button></router-link>
     </div>
-    
-
   </div>
 </template>
 <script>
@@ -44,7 +61,7 @@ export default {};
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-sizing: border-box;
 }
-.parallax{
+.parallax {
   object-fit: contain;
 }
 h1 {
@@ -54,12 +71,20 @@ h1 {
   font-weight: bolder;
   color: white;
 }
+
 h2{
+  font-weight: bolder;
   text-align: center;
+  padding: 5%;
 }
-p{
+
+p {
   color: black;
   font: bolder;
+}
+span{
+  text-align: center;
+  font-size: 109x;
 }
 .img1 {
   background: url("https://chany4.github.io/capstone-images/images/contact%20page/toyota-967011_1920.jpg");
@@ -72,34 +97,86 @@ p{
   padding: 15%;
 }
 
-.home{
- padding:2%;
+.home {
+  padding: 2%;
 }
 
-.x{
-  padding: 2% ;
-  width: 350px;
-  height: 250px;
-  background-color: red;
+.x {
+  padding: 2%;
+  width: 430px;
+  height: 400px;
+  background-color: rgb(230, 230, 230);
   margin: 1%;
+  border-radius: 5px;
+  position: relative;
 }
-.y{
+.x:hover {
+  background-color: rgb(214, 91, 91);
+  transition: 1s ease-in-out;
+}
+.y {
   padding: 2%;
   width: 270px;
   height: 200px;
   margin: 2%;
   background-color: green;
 }
-.z{
+.z {
   background-color: grey;
 }
-.m{
+.m {
   max-width: 100vw;
   overflow-x: hidden;
 }
-.c{
+.c {
   background-color: grey;
 }
-/*  */
+
+/*Product Display  */
+
+.text{
+  color: white;
+  font-size: 90px;
+  color: white;
+  text-shadow: 5px 6px 5px black;
+  position: absolute;
+  bottom: 2px;
+  left: 0px;
+}
+.productDisplay1{
+  background-image: url('https://chany4.github.io/capstone-images/products/tyres_and_rims/NISMO-LM-GT2-removebg-preview.png');
+  background-position: center;
+
+}
+
+.text2{
+  color: white;
+  font-size: 50PX;
+  color: white;
+  text-shadow: 5px 6px 5px black;
+  position: absolute;
+  bottom: 2px;
+  left: 0px;
+}
+.productDisplay2{
+  background-image: url('https://chany4.github.io/capstone-images/products/tyres_and_rims/NISMO-LM-GT2-removebg-preview.png');
+  background-position: center;
+
+}
+
+.text3{
+  color: white;
+  font-size: 70px;
+  color: white;
+  text-shadow: 5px 6px 5px black;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+.productDisplay3{
+  background-image: url('https://chany4.github.io/capstone-images/products/tyres_and_rims/NISMO-LM-GT2-removebg-preview.png');
+  background-position: center;
+
+}
 
 </style>

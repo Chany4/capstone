@@ -3,7 +3,7 @@
     <h1>Products</h1>
     <div class="container">
       <!-- Show Spinner while loading -->
-      <SpinnerComp v-if="loading" />
+      <SpinnerComp v-if="loading" class="spinner"/>
 
       <!-- Display Product Cards once data is loaded -->
       <div v-else>
@@ -100,4 +100,5 @@ h1 {
   text-align: center;
   color: black;
 }
+
 </style>

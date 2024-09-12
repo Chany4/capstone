@@ -31,10 +31,12 @@ const addUserDB = async (firstName, lastName, userAge, Gender, userRole, emailAd
 
 // userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
 
-const updateUserDB = async (firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile,id) => {
-    await pool.query(`UPDATE users SET firstName = ?, lastName = ?, userAge = ?, Gender = ?, userRole = ?,emailAdd = ?,userPass = ?,userProfile = ? WHERE userID = ?`, [firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile,id]
-
-    )
+const updateUserDB = async (id,firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile)=>{
+    let [data] = await pool.query(`
+        UPDATE Users
+        SET firstName=?,lastName=?,userAge=?,Gender=?,userRole=?,emailAdd=?,userPass=?,userProfile=?
+        WHERE userID = ?`,[firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile,id])
+    return data
 }
 
 const removeUserDB = async (id) => {

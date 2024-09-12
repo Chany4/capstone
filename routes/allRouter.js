@@ -50,7 +50,7 @@ router.patch('/updateUser/:id',updateUser)
 router.delete('/removeUser/:id',removeUser)
 
 
-router.post('/login', checkUser,loginUser)
+router.post('/login', checkUser,loginUser) 
 
 // cart
 

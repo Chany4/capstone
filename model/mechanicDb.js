@@ -17,11 +17,22 @@ const addMechanicDb = async (partName, material, engineType, compatibleCarMake, 
     );
 }
 
-const updateMechanicDb = async(partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description,id) => {
-    await pool.query(
-        `UPDATE mechanicalParts SET partName=?, material=?, engineType=?, compatibleCarMake=?, imageURL=?,  price=?, category=?, stockQuantity=?, warrantyPeriod=?, description=? WHERE mechanicalPartID=?`, [partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description,id] 
-    )
-};
+const updateMechanicDb = async (partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description, id) => {
+    try {
+      // Ensure `pool.query` is using the correct database pool connection
+      const result = await pool.query(
+        `UPDATE mechanicalParts 
+         SET partName=?, material=?, engineType=?, compatibleCarMake=?, imageURL=?, price=?, category=?, stockQuantity=?, warrantyPeriod=?, description=? 
+         WHERE mechanicalPartID=?`, 
+        [partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description, id]
+      );
+      return result; // Return result if needed for further processing
+    } catch (error) {
+      console.error('Error updating mechanic database:', error);
+      throw error; // Rethrow the error if you want to handle it in the calling function
+    }
+  };
+  
 
 const deleteMechanicDb = async(id) => {
     let [data] = await pool.query(

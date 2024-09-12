@@ -90,7 +90,7 @@ export default createStore({
       try {
         const results = await (await axios.post(`${apiURL}bigTime/addUser`,info)).data;
         console.log(results);
-        toast("Yayyy!You have signed in!", {
+        toast("Yayyy!You have signed in and added as user!", {
           "theme": "auto",
           "type": "default",
           "dangerouslyHTMLString": true
@@ -104,6 +104,26 @@ export default createStore({
         })
       }
       },
+      async addUserAdmin({commit}, info) {
+        console.log(info);
+        try {
+          const results = await (await axios.post(`${apiURL}bigTime/addUser`,info)).data;
+          console.log(results);
+          toast("User has been added successfully", {
+            "theme": "auto",
+            "type": "default",
+            "dangerouslyHTMLString": true
+          })
+          location.reload()
+          
+        } catch (error) {
+          toast.error(`Ooops something `, {
+            autoClose : 3000,
+            position : 'bottom-center'
+  
+          })
+        }
+        },
 
       // delete user
       // delete works but doesn't show pop up message , only shows when page is refreshed  --> ask matthew 
@@ -120,9 +140,9 @@ export default createStore({
                 text: "User was deleted successfully!",
                 icon: "success"
               });
+              location.reload()
             }else{
-              console.log(err);
-              
+              alert('User is being deleted')
             }
         } catch (e) {
             toast.error(e.message, {
@@ -139,6 +159,12 @@ export default createStore({
         const { message, err } = await (await axios.patch(`${apiURL}bigTime/updateUser/${id}`)).data
         if (message) {
           context.dispatch('fetchUsers')
+          Swal.fire({
+            title: "Good job!",
+            text: "User was updated successfully!",
+            icon: "success"
+          });
+          location.reload()
         } else {
           toast.error(`${err}`, {
             autoClose: 2000,
@@ -147,7 +173,7 @@ export default createStore({
         }
       } catch (e) {
         toast.error(`${e.message}`, {
-          autoClose: 2000,
+          autoClose: 2000,                            
           position: toast.POSITION.BOTTOM_CENTER
         })
       }
@@ -209,6 +235,7 @@ export default createStore({
               text: "Product was deleted successfully!",
               icon: "success"
             });
+            location.reload()
           } else if (err) {
             console.log(err);
             Swal.fire({
@@ -238,7 +265,8 @@ export default createStore({
             "theme": "auto",
             "type": "default",
             "dangerouslyHTMLString": true
-          })
+          });
+          location.reload()
           
         } catch (error) {
           toast.error(`Ooops something wentt wrong `, {

@@ -44,7 +44,10 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Update</button>
+              <button type="submit"
+                  @click.prevent="patchUser"
+                  class="btn btn-success"
+                  data-bs-dismiss="modal">Update</button>
             </div>
           </form>
         </div>
@@ -67,15 +70,13 @@ export default {
         emailAdd: "",
         userPass: "",
         userProfile: ""
-      
     }
   },
-  methods: {
-    async updateUser() {
-      await this.$store.dispatch('updateUser', this.payload);
-      window.location.reload()
+  computed: {
+    patchUser() {
+      this.$store.dispatch("updateUser", this.$data);
     }
-  }
+  },
 }
 </script>
 

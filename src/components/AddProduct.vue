@@ -31,40 +31,32 @@
                 <input
                   type="text"
                   class="form-control w-50 mx-auto"
-                  placeholder="Product ID"
-                  v-model="payload.productID"
-                />
-              </div>
-              <div class="mb-3">
-                <input
-                  type="text"
-                  class="form-control w-50 mx-auto"
                   placeholder="Product Name"
-                  v-model="payload.productName"
+                  v-model="partName"
                 />
               </div>
               <div class="mb-3">
                 <input
                   type="text"
                   class="form-control w-50 mx-auto"
-                  placeholder="Product Quantity"
-                  v-model="payload.quantity"
+                  placeholder="Product Material"
+                  v-model="material"
                 />
               </div>
               <div class="mb-3">
                 <input
                   type="text"
                   class="form-control w-50 mx-auto"
-                  placeholder="Product Amount"
-                  v-model="payload.amount"
+                  placeholder="Product Engine Type"
+                  v-model="engineType"
                 />
               </div>
               <div class="mb-3">
                 <input
                   type="text"
                   class="form-control w-50 mx-auto"
-                  placeholder="Product category_color"
-                  v-model="payload.category_color"
+                  placeholder="Product Compatible Make"
+                  v-model="compatibleCarMake"
                 />
               </div>
               <div class="mb-3">
@@ -72,15 +64,47 @@
                   type="text"
                   class="form-control w-50 mx-auto"
                   placeholder="Product URL"
-                  v-model="payload.productURL"
+                  v-model="imageURL"
                 />
               </div>
               <div class="mb-3">
                 <input
                   type="text"
                   class="form-control w-50 mx-auto"
-                  placeholder="Product Desc"
-                  v-model="payload.description"
+                  placeholder="Product Price"
+                  v-model="price"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control w-50 mx-auto"
+                  placeholder="Product Category"
+                  v-model="category"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control w-50 mx-auto"
+                  placeholder="Product Quantity"
+                  v-model="stockQuantity"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control w-50 mx-auto"
+                  placeholder="Product Warranty"
+                  v-model="warrantyPeriod"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control w-50 mx-auto"
+                  placeholder="Product Description"
+                  v-model="description"
                 />
               </div>
               <div class="modal-footer">
@@ -93,7 +117,7 @@
                 </button>
                 <button
                   type="submit"
-                  @click.prevent="addingProduct"
+                  @click.prevent="addProduct"
                   class="btn btn-success"
                   data-bs-dismiss="modal"
                 >
@@ -110,28 +134,25 @@
   <script>
   export default {
     name: "addProduct",
-    data() {
+    data() { 
       return {
-        payload: {
-          productID: "",
-          productName: "",
-          quantity: "",
-          amount: "",
-          category_color: "",
-          productURL: "",
-          description: "",
-        },
-      };
+          partName: "",
+          material: "",
+          engineType: "",
+          compatibleCarMake: "",
+          imageURL: "",
+          price: "",
+          category:"",
+          stockQuantity:"",
+          warrantyPeriod:"",
+          description:""  
+        };
     },
-    methods: {
-      addingProduct() {
-        try {
-          this.$store.dispatch("addProduct", this.payload);
-        } catch (error) {
-          console.error(error);
-        }
-      },
-    },
+    computed: {
+    addProduct() {
+      this.$store.dispatch("addMech",this.$data);
+    }
+  },
   };
   </script>
   

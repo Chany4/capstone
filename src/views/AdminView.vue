@@ -2,14 +2,21 @@
   <div>
     <!-- USERS TABLE -->
     <br />
-   <div class="row">
-    <router-link to='/logout'><button id="log-in-button" class=" mt-3" @click="logOutUser()">Log Out</button></router-link><br>
-    <router-link to='/user'><button id="log-in-button2" class=" mt-3" >View Profile</button></router-link>
-    <br>
-   </div>
+    <div class="row">
+      <router-link to="/logout"
+        ><button id="log-in-button" class="mt-3" @click="logOutUser()">
+          Log Out
+        </button></router-link
+      ><br />
+      <router-link to="/user"
+        ><button id="log-in-button2" class="mt-3">
+          View Profile
+        </button></router-link
+      >
+      <br />
+    </div>
     <h2 class="text-center">Users Table</h2>
     <br />
-    
 
     <div class="container table-responsive">
       <table class="table table-striped table-hover">
@@ -35,18 +42,14 @@
             <td>{{ user.Gender }}</td>
             <td>{{ user.userRole }}</td>
             <td>{{ user.emailAdd }}</td>
-            <td><img :src="user.imageURL" alt="User Image"></td>
+            <td><img :src="user.imageURL" alt="User Image" /></td>
             <td
               class="d-flex justify-content-between align-items-center flex-column flex-md-row gap-2"
             >
-             
-              <!-- add -->
-              <addUser :user="user" />
               <!-- update -->
 
               <updateUser :user="user" />
-               <!-- <updateUser/> -->
-
+              <!-- <updateUser/> -->
 
               <!-- delete -->
               <button
@@ -58,6 +61,17 @@
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="100%">
+              <!-- Use colspan to ensure the content spans the full width -->
+              <div class="center-content">
+                <p class="mx-3">Add user</p>
+                <addUser/>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
 
@@ -98,22 +112,16 @@
             <td
               class="d-flex justify-content-between align-items-center flex-column flex-md-row gap-2"
             >
-              <addProduct :product="product" />
+              
               <updateProduct :product="product" />
-              <!-- add -->
-              <button
-                class="btn btn-outline-danger deleteButton"
-                @click="(event) => addProduct"
-              >
-              <i class="bi bi-plus-square"></i>
-              </button>
+              
 
               <!-- update -->
               <button
                 class="btn btn-outline-danger deleteButton"
                 @click="(event) => deleteProduct(product.productID)"
               >
-              <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-pencil-square"></i>
               </button>
               <!-- delete -->
               <button
@@ -125,18 +133,32 @@
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="100%">
+              <!-- Use colspan to ensure the content spans the full width -->
+              <div class="center-content">
+                <p class="mx-3">Add Product</p>
+                <!-- add -->
+                <addProduct :product="product" />
+              </div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   </div>
 </template>
 <script>
-
-import AddUser from '@/components/AddUser.vue';
-import updateUser from '@/components/UserUpdateModal.vue'
+import addUser from "@/components/AddUser.vue";
+import addProduct from "@/components/AddProduct.vue";
+import updateUser from "@/components/UserUpdateModal.vue";
 
 export default {
-  components:{
-    AddUser
+  components: {
+    addUser,
+    addProduct,
+    updateUser
   },
   computed: {
     products() {
@@ -149,52 +171,69 @@ export default {
   mounted() {
     this.$store.dispatch("fetchUsers");
     this.$store.dispatch("fetchMech");
-    
   },
   methods: {
     deleteUser(userID) {
-      this.$store.dispatch('deleteUser', userID);
+      this.$store.dispatch("deleteUser", userID);
     },
     deleteProduct(mechanicalPartID) {
-      this.$store.dispatch('deleteMech', mechanicalPartID);
+      this.$store.dispatch("deleteMech", mechanicalPartID);
     },
-    updateUser(userID){
-      this.$store.dispatch('updateUser',userID)
+    updateUser(userID) {
+      this.$store.dispatch("updateUser", userID);
     },
-    updateProduct(productID){
-      this.$store.dispatch('')
+    updateProduct(productID) {
+      this.$store.dispatch("",productID);
     },
-    addUser(){
-      this.$store.dispatch('addUser')
-    },
-    addProduct(){
-      this.$store.dispatch('addUser')
-    },logOutUser() {
+    logOutUser() {
       // Add your custom logout logic here, e.g., clearing Vuex state, removing cookies, etc.
-      
+
       Swal.fire({
         title: "Logged Out! Refresh Page",
         text: "You have been logged out. Please refresh the page.",
         icon: "success",
-        showConfirmButton: true
+        showConfirmButton: true,
       });
-      
-      this.$store.dispatch('logout'); // Make sure you have a logout action in your store
-    }
-  }
+
+      this.$store.dispatch("logout"); // Make sure you have a logout action in your store
+    },
+  },
 };
 </script>
 <style scoped>
 h2 {
-  color: #4E96D3;
+  color: #4e96d3;
 }
-
+p {
+  text-align: center;
+  color: #4e96d3;
+  font-size: 20px;
+  font-weight: bold;
+  max-width: fit-content;
+  align-self: baseline;
+}
+.box {
+  max-width: fit-content;
+}
+.t {
+  border: 2px solid black;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .table {
   margin-top: 20px;
   width: 100%;
 }
-
-tr{
+tfoot {
+  text-align: center; /* Centers inline and inline-block elements inside tfoot */
+}
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensures the content is centered vertically if needed */
+}
+tr {
   min-width: fit-content;
 }
 
@@ -222,40 +261,40 @@ td {
 
 /* login button */
 
-#log-in-button{
-    width: 152px;
-    height: 44px;
-    background-color: rgb(226, 226, 255);
-    border-radius: 25px;
-    border: 2px solid rgb(0, 0, 136);
-    position: fixed;
-    top: 13%; 
-    right: 0;
-    margin-top: 20px;
-    margin: 10px;
-    z-index: 1;
-    color: rgb(1, 0, 76);
-    font-weight: bolder;
-    text-align: 5px 2px 5px black;
+#log-in-button {
+  width: 152px;
+  height: 44px;
+  background-color: rgb(226, 226, 255);
+  border-radius: 25px;
+  border: 2px solid rgb(0, 0, 136);
+  position: fixed;
+  top: 13%;
+  right: 0;
+  margin-top: 20px;
+  margin: 10px;
+  z-index: 1;
+  color: rgb(1, 0, 76);
+  font-weight: bolder;
+  text-align: 5px 2px 5px black;
 }
-#log-in-button2{
-    width: 152px;
-    height: 44px;
-    background-color: rgb(226, 226, 255);
-    border-radius: 25px;
-    border: 2px solid rgb(0, 0, 136);
-    position: fixed;
-    top: 20%; 
-    right: 0;
-    margin-top: 20px;
-    margin: 10px;
-    z-index: 1;
-    color: rgb(1, 0, 76);
-    font-weight: bolder;
-    text-align: 5px 2px 5px black;
+#log-in-button2 {
+  width: 152px;
+  height: 44px;
+  background-color: rgb(226, 226, 255);
+  border-radius: 25px;
+  border: 2px solid rgb(0, 0, 136);
+  position: fixed;
+  top: 20%;
+  right: 0;
+  margin-top: 20px;
+  margin: 10px;
+  z-index: 1;
+  color: rgb(1, 0, 76);
+  font-weight: bolder;
+  text-align: 5px 2px 5px black;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .table-responsive {
     overflow-x: auto;
   }
@@ -271,7 +310,7 @@ td {
   }
 }
 
-@media(max-width: 576px) {
+@media (max-width: 576px) {
   .img-fluid {
     max-width: 40px;
   }

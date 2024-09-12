@@ -6,8 +6,8 @@ import { useCookies } from 'vue3-cookies'
 import router from '@/router';
 const {cookies} = useCookies()
 import Swal from 'sweetalert2'
-const apiURL = 'https://capstone-jm4p.onrender.com/'
-// const apiURL = 'http://localhost:9001/'
+// const apiURL = 'https://capstone-jm4p.onrender.com/'
+const apiURL = 'http://localhost:9001/'
 
 const msg = 'Product not found'
 
@@ -165,8 +165,15 @@ export default createStore({
     async updateUser(context, user) {
       console.log(user);
       try {
-        const { message, err } = await (await axios.patch(`${apiURL}bigTime/updateUser/${user.userID},user`)).data
-        if (message) {
+        // console.log('eh');
+        // const { message, err } = await (await axios.patch(`${apiURL}bigTime/updateUser/${user.userID}`)).data
+        const response = (await axios.patch(`${apiURL}bigTime/updateUser/${user.userID}`, user)).data;
+        // const { message } = response.data;
+        
+        // console.log(message);
+        // console.log('eh');
+        
+        // if (message) {
           context.dispatch('fetchUsers')
           Swal.fire({
             title: "Good job!",
@@ -174,12 +181,12 @@ export default createStore({
             icon: "success"
           });
           // location.reload()
-        } else {
-          toast.error(`${err}`, {
-            autoClose: 2000,
-            position: toast.POSITION.BOTTOM_CENTER
-          })
-        }
+        // } else {
+        //   toast.error(`${err}`, {
+        //     autoClose: 2000,
+        //     position: toast.POSITION.BOTTOM_CENTER
+        //   })
+        // }
       } catch (e) {
         toast.error(`${e.message}`, {
           autoClose: 2000,                            

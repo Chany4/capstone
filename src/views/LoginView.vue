@@ -79,8 +79,8 @@
 
         <label>
           <input
-            class="input"
-            type="password"
+            class="input" readonly
+            type="text"
             placeholder=""
             v-model="userProfile"
           />
@@ -134,7 +134,7 @@ export default {
       userRole: "",
       emailAdd: "",
       userPass: "",
-      userProfile: "",
+      userProfile: "https://chany4.github.io/capstone-images/images/user/59af9cd100daf9aa154cc753dd58316d.png",
       login_emailAdd: "",
       login_userPass: "",
       signUp: true,

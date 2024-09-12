@@ -59,7 +59,7 @@
             >
               <!-- update -->
 
-              <updateUser :user="user" />
+              <updateUsers :user="user" />
               <!-- <updateUser/> -->
 
               <!-- delete -->
@@ -130,12 +130,12 @@
               
 
               <!-- update -->
-              <button
+              <!-- <button
                 class="btn btn-outline-danger deleteButton"
                 @click="(event) => deleteProduct(product.productID)"
               >
                 <i class="bi bi-pencil-square"></i>
-              </button>
+              </button> -->
               <!-- delete -->
               <button
                 class="btn btn-outline-danger deleteButton"
@@ -153,13 +153,13 @@
 <script>
 import addUser from "@/components/AddUser.vue";
 import addProduct from "@/components/AddProduct.vue";
-import updateUser from "@/components/UserUpdateModal.vue";
+import updateUsers from "@/components/UserUpdateModal.vue";
 
 export default {
   components: {
     addUser,
     addProduct,
-    updateUser
+    updateUsers
   },
   computed: {
     products() {
@@ -180,12 +180,6 @@ export default {
     deleteProduct(mechanicalPartID) {
       this.$store.dispatch("deleteMech", mechanicalPartID);
     },
-    updateUser(userID) {
-      this.$store.dispatch("updateUser", userID);
-    },
-    updateProduct(productID) {
-      this.$store.dispatch("",productID);
-    },
     logOutUser() {
       // Add your custom logout logic here, e.g., clearing Vuex state, removing cookies, etc.
 
@@ -196,6 +190,7 @@ export default {
         showConfirmButton: true,
       });
       this.$store.dispatch("logout"); // Make sure you have a logout action in your store
+      
     },
   },
 };

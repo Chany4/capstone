@@ -31,7 +31,7 @@
               </template>
               <template #cardButton>
                 <div class="d-flex justify-content-start">
-                <button @click="addToCart(x)" id="black">Purchase</button>
+                <button @click="addToCart(mech)" id="black">Purchase</button>
                 </div>
               </template>
               <template #cardButton2>
@@ -64,16 +64,14 @@ import Card from "@/components/CardComp.vue";
 import { ref, onMounted } from "vue";
 import store from "@/store";
 
-const loading = ref(true);
-
-const purchase = (mechanicalPartID) => {
-  store.dispatch('addToCartMech', mechanicalPartID);
-  console.log("purchase button clicked", mechanicalPartID);
+const addToCart = (game)=>{
+  store.dispatch('toCart', game)
 }
 
+const loading = ref(true);
+
 onMounted(() => {
-  store.dispatch("fetchUsers");
-  purchase();
+  // store.dispatch("fetchUsers");
   store.dispatch("fetchMech").then(() => {
     store.dispatch("fetchIntExt").then(() => {
       loading.value = false;

@@ -23,7 +23,7 @@ export default createStore({
     IntExtSingle:null,
     carts:[],
     login: false,
-    // cart:JSON.parse($cookies.get("cart")) || []
+    cart:JSON.parse(cookies.get("cart")) || []
   },
   getters: {
   },
@@ -50,9 +50,17 @@ export default createStore({
       state.IntExtSingle= payload
     },setCarts(state,value){
       state.carts = value
+    },setCart(state,payload){
+      state.cart = payload
     },
     setLogin(state,data){
       state.login = data
+    },
+    addToCart(state,cart){
+      state.cart.push(cart);
+    },
+    removeFromCart(state,itemId){
+      state.cart = state.cart.filter(item=> item.id !== itemId);
     }
   },
   actions: {
@@ -65,7 +73,7 @@ export default createStore({
         console.log(results);
         
       } catch (error) {
-        toast.error(`Ooops something went wrong`, {
+        toast.error(`Ooops Could not fetch users`, {
           autoClose : 3000,
           position : 'bottom-center'
         })
@@ -143,6 +151,7 @@ export default createStore({
               location.reload()
             }else{
               alert('User is being deleted')
+              location.reload()
             }
         } catch (e) {
             toast.error(e.message, {
@@ -153,10 +162,10 @@ export default createStore({
     },
 
     // update user 
-    async updateUser(context, id) {
-      console.log(id);
+    async updateUser(context, user) {
+      console.log(user);
       try {
-        const { message, err } = await (await axios.patch(`${apiURL}bigTime/updateUser/${id}`)).data
+        const { message, err } = await (await axios.patch(`${apiURL}bigTime/updateUser/${user.userID},user`)).data
         if (message) {
           context.dispatch('fetchUsers')
           Swal.fire({
@@ -164,7 +173,7 @@ export default createStore({
             text: "User was updated successfully!",
             icon: "success"
           });
-          location.reload()
+          // location.reload()
         } else {
           toast.error(`${err}`, {
             autoClose: 2000,
@@ -299,19 +308,6 @@ export default createStore({
           }
         },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         
 
       // Interior and Exterior 
@@ -408,19 +404,14 @@ export default createStore({
       
 
         // cart
-
-        addToCart(state,cart){
-          state.cart.push(cart);
-        },
-        removeFromCart(state,itemId){
-          state
-        },
         toCart({commit},game){
           commit('addToCart', game);
-          $cookies.set("cart",JSON.stringify(this.state.cart));
+          cookies.set('cart',JSON.stringify(this.state.cart));
+          console.log('Please refresh The page if you can not visit other pages');
+          
         },
 
-
+     
     },
   modules: {
   }

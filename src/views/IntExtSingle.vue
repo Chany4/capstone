@@ -44,7 +44,7 @@ export default {
     mounted() {
         this.getProduct();
     },
-    components: {c  
+    components: { 
         SpinnerComp
     }
 }

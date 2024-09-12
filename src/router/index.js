@@ -77,19 +77,7 @@ const routes = [
     component: ()=>import('@/views/LoginView.vue'),
     beforeEnter(){
       cookies.remove('userInfo')
-      // ask joel about the rest
       router.push({name: 'login'})
-      // location.reload()
-
-//       path: '/logout',
-// name: 'logout',
-// component: () => import('@/views/HomeView.vue'),
-// beforeEnter(to, from, next) { 
-//   useCookies.remove('userInfo'); // Remove the cookie
-
-//   // Redirect to login page after removing the cookie
-//   next({ name: 'login' });
-// }
     }
   },
   {

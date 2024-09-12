@@ -403,7 +403,7 @@ export default createStore({
         },
 
         logout(){
-          alert('please refresh the page')
+          alert('please refresh the page when redirected')
         },
       
 

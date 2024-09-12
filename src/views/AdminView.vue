@@ -6,8 +6,8 @@
       <router-link to="/logout"
         ><button id="log-in-button" class="mt-3" @click="logOutUser()">
           Log Out
-        </button></router-link
-      ><br />
+        </button></router-link>
+        <br />
       <router-link to="/user"
         ><button id="log-in-button2" class="mt-3">
           View Profile
@@ -20,7 +20,18 @@
 
     <div class="container table-responsive">
       <table class="table table-striped table-hover">
-        <thead class="table-dark">
+        <thead>
+          <tr class="thead" >
+            <td colspan="100%">
+              <!-- Use colspan to ensure the content spans the full width -->
+              <div class="center-content">
+                <p class="mx-3">Add user</p>
+                <addUser/>
+              </div>
+            </td>
+          </tr>
+        </thead>
+        <tbody class="table-dark">
           <tr>
             <th>User ID</th>
             <th>First Name</th>
@@ -32,8 +43,8 @@
             <th>User Profile</th>
             <th>Action</th>
           </tr>
-        </thead>
-        <tbody v-if="users">
+        </tbody>
+        <tfoot v-if="users">
           <tr v-for="user in users" :key="user.userID">
             <td>{{ user.userID }}</td>
             <td>{{ user.firstName }}</td>
@@ -60,18 +71,8 @@
               </button>
             </td>
           </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="100%">
-              <!-- Use colspan to ensure the content spans the full width -->
-              <div class="center-content">
-                <p class="mx-3">Add user</p>
-                <addUser/>
-              </div>
-            </td>
-          </tr>
         </tfoot>
+       
       </table>
     </div>
 
@@ -81,7 +82,19 @@
     <br />
     <div class="container table-responsive">
       <table class="table table-striped table-hover">
-        <thead class="table-dark">
+        <thead  class="thead">
+          <tr>
+            <td colspan="100%">
+              <!-- Use colspan to ensure the content spans the full width -->
+              <div class="center-content">
+                <p class="mx-3">Add Product</p>
+                <!-- add -->
+                <addProduct :product="product" />
+              </div>
+            </td>
+          </tr>
+        </thead>
+        <tbody class="table-dark">
           <tr>
             <th>Product ID</th>
             <th>Product Name</th>
@@ -92,8 +105,8 @@
             <th>Product Description</th>
             <th>Action</th>
           </tr>
-        </thead>
-        <tbody v-if="products">
+        </tbody>
+        <tfoot v-if="products">
           <tr v-for="product in products" :key="product.productID">
             <td>{{ product.mechanicalPartID }}</td>
             <td>{{ product.mechanicalPartID }}</td>
@@ -130,18 +143,6 @@
               >
                 <i class="bi bi-trash-fill"></i>
               </button>
-            </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="100%">
-              <!-- Use colspan to ensure the content spans the full width -->
-              <div class="center-content">
-                <p class="mx-3">Add Product</p>
-                <!-- add -->
-                <addProduct :product="product" />
-              </div>
             </td>
           </tr>
         </tfoot>
@@ -194,7 +195,6 @@ export default {
         icon: "success",
         showConfirmButton: true,
       });
-
       this.$store.dispatch("logout"); // Make sure you have a logout action in your store
     },
   },
@@ -224,8 +224,11 @@ p {
   margin-top: 20px;
   width: 100%;
 }
-tfoot {
+thead {
   text-align: center; /* Centers inline and inline-block elements inside tfoot */
+}
+.thead{
+  background-color: black;
 }
 .center-content {
   display: flex;

@@ -20,6 +20,12 @@
             </div>
           </div>
         </div>
+        <div class="row d-flex justify-content-center">
+          <router-link to="/logout"
+        ><button id="log-in-button" class="mt-3" @click="logOutUser()">
+          Log Out
+        </button></router-link>
+        </div>
       </div>
     </div>
   </template>
@@ -67,7 +73,19 @@
           this.userInfo = storedUserInfo.user; // Assign user object from cookie
           this.$store.commit('setSingleUser', storedUserInfo.user); // Set user to store if needed
         }
-      }
+      },
+      logOutUser() {
+      // Add your custom logout logic here, e.g., clearing Vuex state, removing cookies, etc.
+
+      Swal.fire({
+        title: "Logged Out! Refresh Page",
+        text: "You have been logged out. Please refresh the page.",
+        icon: "success",
+        showConfirmButton: true,
+      });
+
+      this.$store.dispatch("logout"); // Make sure you have a logout action in your store
+    },
     },
     mounted() {
       this.fetchUserInfoFromCookies(); // Fetch the userInfo from cookies when the component mounts

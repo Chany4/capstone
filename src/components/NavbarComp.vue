@@ -28,7 +28,7 @@
               <router-link class="nav-link" exact-active-class="active-link" to="/cart"><i class="bi bi-cart"></i></router-link>
             </li>
             <ul class="navbar-nav" v-if="user">
-              <li class="nav-item" v-if="!isUser">
+              <li class="nav-item" v-if="isUser = !isUser">
                 <router-link class="nav-link" exact-active-class="active-link" to="/admin"><i class="bi bi-person-check"></i></router-link>
               </li>
               <li class="nav-item" v-else>
@@ -53,7 +53,8 @@
   const {cookies} = useCookies()
   const store = useStore()
   const user = computed(() => store.state?.user || cookies.get('userInfo')?.user)
-  const isUser = computed(()=> user?.userRole?.toLowerCase() == 'user' )  
+  const isUser = computed(()=> user?.value.userRole?.toLowerCase() == 'user' )  
+console.log(isUser);
 
 </script>
   <style scoped>

@@ -62,7 +62,7 @@ const updateUser = async (req,res)=>{
         }else{
             userPass = user.userPass
             console.log(userPass);
-            await editUsersDb(req.params.id,firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile)
+            await updateUserDB(req.params.id,firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile)
         }
         res.status(202).json({message:"User updated successfully"})
     }catch(err){

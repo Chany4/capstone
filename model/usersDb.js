@@ -33,7 +33,7 @@ const addUserDB = async (firstName, lastName, userAge, Gender, userRole, emailAd
 
 const updateUserDB = async (id,firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile)=>{
     let [data] = await pool.query(`
-        UPDATE Users
+        UPDATE users
         SET firstName=?,lastName=?,userAge=?,Gender=?,userRole=?,emailAdd=?,userPass=?,userProfile=?
         WHERE userID = ?`,[firstName,lastName,userAge,Gender,userRole,emailAdd,userPass,userProfile,id])
     return data

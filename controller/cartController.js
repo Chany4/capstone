@@ -1,6 +1,3 @@
-import { addToCartDB } from "../model/cartDb.js";
-import { getUserID } from "../model/cartDb.js";
-import { getUserDB } from "../model/usersDb.js";
 
 // ADD TO CART INFO
 const addToCart = async (req, res) => {

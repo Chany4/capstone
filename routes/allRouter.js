@@ -1,5 +1,4 @@
 import {getMechanics,getMechanic,addMechanic,deleteMechanic,updateMechanic} from '../controller/mechanicController.js'
-import {getInteriorExteriors,getInteriorExterior,addInteriorExterior,deleteInteriorExterior,updateInteriorExterior} from '../controller/interiorExteriorController.js'
 import {fetchUsers,fetchUser,addUser,removeUser,updateUser,loginUser} from '../controller/usersController.js'
 import { checkUser,verifyAToken } from '../middleware/authenticate.js'
 import { fetchCarts, fetchuserCart, fetchadduserCart, fetchupdateUserCart, deleteItem, deleteCart } from '../model/cartDb.js'
@@ -20,20 +19,6 @@ router.post('/addMechanic',addMechanic)
 router.patch('/mech/:id',updateMechanic)
 
 router.delete('/mech/:id',deleteMechanic)
-
-
-
-// interior and  exterior 
-
-router.get('/getInteriorExterior',getInteriorExteriors)
-
-router.get('/getInteriorExterior/:id',getInteriorExterior)
-
-router.post('/addInteriorExterior',addInteriorExterior)
-
-router.patch('/intExt/:id',updateInteriorExterior)
-
-router.delete('/intExt/:id',deleteInteriorExterior)
 
 
 

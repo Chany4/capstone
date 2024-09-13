@@ -125,17 +125,8 @@
             <td
               class="d-flex justify-content-between align-items-center flex-column flex-md-row gap-2"
             >
-              
-              <updateProduct :product="product" />
-              
-
-              <!-- update -->
-              <!-- <button
-                class="btn btn-outline-danger deleteButton"
-                @click="(event) => deleteProduct(product.productID)"
-              >
-                <i class="bi bi-pencil-square"></i>
-              </button> -->
+              <!-- update -->ProductModal
+              <ProductModal :product="product" />
               <!-- delete -->
               <button
                 class="btn btn-outline-danger deleteButton"
@@ -154,12 +145,14 @@
 import addUser from "@/components/AddUser.vue";
 import addProduct from "@/components/AddProduct.vue";
 import updateUsers from "@/components/UserUpdateModal.vue";
+import ProductModal from "@/components/ProductModal.vue";
 
 export default {
   components: {
     addUser,
     addProduct,
-    updateUsers
+    updateUsers,
+    ProductModal
   },
   computed: {
     products() {
@@ -179,6 +172,8 @@ export default {
     },
     deleteProduct(mechanicalPartID) {
       this.$store.dispatch("deleteMech", mechanicalPartID);
+      alert('we are deleting the product... refresh the page if changes do not show or page fails to');
+      location.reload()
     },
     logOutUser() {
       // Add your custom logout logic here, e.g., clearing Vuex state, removing cookies, etc.

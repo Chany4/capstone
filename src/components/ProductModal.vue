@@ -1,80 +1,101 @@
 <template>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-outline-warning modalButton" data-bs-toggle="modal" data-bs-target="#updateProductModal">
-      <i class="bi bi-pencil-fill"></i>
+  <div>
+    <!-- Button to trigger modal -->
+    <button type="button" class="btn" :data-bs-target="'#adminEditUser' + mech.mechanicalPartID" data-bs-toggle="modal">
+      <i class="bi bi-pencil-square"></i>
     </button>
-  
-    <!-- Modal -->
-    <div class="modal fade" id="updateProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
+
+    <!-- Modal Structure -->
+    <div class="modal fade" :id="'adminEditUser' + mech.mechanicalPartID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Update Product</h1>
+            <h1 class="modal-title fs-5" id="editUserLabel">Edit User</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form @submit.prevent="updateProduct">
-              <div class="mb-3">
-                <input type="text" class="form-control w-50 mx-auto" placeholder="Product ID" v-model="payload.productID">
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control w-50 mx-auto" placeholder="Product Name" v-model="payload.productName">
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control w-50 mx-auto" placeholder="Product Quantity" v-model="payload.quantity">
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control w-50 mx-auto" placeholder="Product Amount" v-model="payload.amount">
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control w-50 mx-auto" placeholder="Product category_color" v-model="payload.category_color">
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control w-50 mx-auto" placeholder="Product URL" v-model="payload.productURL">
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control w-50 mx-auto" placeholder="Product Desc" v-model="payload.description">
+            <!-- Form to update user details -->
+            <form @submit.prevent="updateProductFx">
+              <div class="container">
+                <!-- Form fields bound to updateMech data model -->
+                <input class="form-control m-2" type="text" placeholder="Enter ID" v-model="updateMech.mechanicalPartID" required>
+                <input class="form-control m-2" type="text" placeholder="Enter Name" v-model="updateMech.partName" required>
+                <input class="form-control m-2" type="text" placeholder="Enter Material" v-model="updateMech.material" required>
+                <input class="form-control m-2" type="number" placeholder="Enter Age" v-model="updateMech.engineType" required>
+                <input class="form-control m-2" type="text" placeholder="Enter Car Make" v-model="updateMech.compatibleCarMake" required>
+                <input class="form-control m-2" type="text" placeholder="Enter Profile Image URL" v-model="updateMech.imageURL" required>
+                <input class="form-control m-2" type="text" placeholder="Enter Price" v-model="updateMech.price" required>
+                <input class="form-control m-2" type="text" placeholder="Enter Category" v-model="updateMech.category" required>
+                <input class="form-control m-2" type="number" placeholder="Enter Stock Quantity" v-model="updateMech.stockQuantity" required>
+                <input class="form-control m-2" type="text" placeholder="Enter Warranty Period" v-model="updateMech.warrantyPeriod" required>
+                <input class="form-control m-2" type="text" placeholder="Enter Description" v-model="updateMech.description" required>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Exit</button>
-                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Update</button>
+                <!-- Modal buttons -->
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Clear</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-outline-success">Save Changes</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'UpdateProduct',
-    data() {
-      return {
-        payload: {
-          productID: '',
-          productName: '',
-          quantity: '',
-          amount: '',
-          category_color: '',
-          productURL: '',
-          description: ''
-        }
-      }
-    },
-    methods: {
-       updateProduct() {
+  </div>
+</template>
 
-        
-        console.log(this.payload);
-        
-        this.$store.dispatch('updateProduct', this.payload);
-
+<script>
+export default {
+  props: ['mech'],
+  data() {
+    return {
+      updateMech: {
+        mechanicalPartID: this.mech?.mechanicalPartID || '',
+        partName: this.mech?.partName || '',
+        material: this.mech?.material || '',
+        engineType: this.mech?.engineType || '',
+        compatibleCarMake: this.mech?.compatibleCarMake || '',
+        imageURL: this.mech?.imageURL || '',
+        price: this.mech?.price || '',
+        category: this.mech?.category || '',
+        stockQuantity: this.mech?.stockQuantity || '',
+        warrantyPeriod: this.mech?.warrantyPeriod || '',
+        description: this.mech?.description || '',
       }
     }
+  },
+  methods: {
+    async updateProductFx() {
+      try {
+        await this.$store.dispatch('updateUser', this.updateMech);
+        this.$emit('update');
+        Swal.fire({
+          title: "Good job!",
+          text: "User was updated successfully!",
+          icon: "success"
+        });
+      } catch (e) {
+        Swal.fire({
+          title: "Error!",
+          text: e.message,
+          icon: "error"
+        });
+      }
+    },
   }
-  </script>
+}
+</script>
   
-  <style scoped>
-
-  </style>
+<style scoped>
+.btn {
+  color: red;
+  background-color: white;
+  border: none;
+}
+button.btn:hover {
+  color: white;
+  background-color: red;
+  border: none;
+  transition: 0.6s ease-in-out;
+}
+</style>

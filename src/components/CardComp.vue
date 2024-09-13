@@ -150,7 +150,7 @@ export default {};
   transform: translate(-50%, -50%) scale(0);
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(-45deg, #f89b2980 0%, #ff0f7b80 100%);
+  background-image: linear-gradient(rgba(92, 92, 210, 0.366), rgba(159, 100, 159, 0.326), rgba(227, 161, 172, 0.356));
   transition: transform 0.5s ease;
 }
 

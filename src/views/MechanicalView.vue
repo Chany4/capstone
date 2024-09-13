@@ -51,9 +51,10 @@
                 <p>Price: {{ mech.price }}</p>
               </template>
               <template #cardButton>
-                <div class="d-flex justify-content-start">
+                <div class="d-flex justify-content-start" v-if="isLeigit">
                   <button @click="addToCart(mech)" id="black">Purchase</button>
                 </div>
+                <div v-else class="zero"></div>
               </template>
               <template #cardButton2>
                 <router-link
@@ -83,6 +84,11 @@ import SpinnerComp from "@/components/SpinnerComp.vue";
 import Card from "@/components/CardComp.vue";
 import { ref, computed, onMounted } from "vue";
 import store from "@/store";
+  import { useCookies } from 'vue3-cookies'
+  const {cookies} = useCookies()
+  const user = computed(() => store.state?.user || cookies.get('userInfo')?.user)
+  const isLegit = computed(()=> user?.value.userRole?.toLowerCase() == 'user' || user?.value.userRole?.toLowerCase() == 'admin' )  
+console.log(isLegit);
 
 const searchQuery = ref("");
 const selectedEngineType = ref("");
@@ -151,7 +157,7 @@ const filteredAndSortedMechs = computed(() => {
 </script>
 <style scoped>
 .n {
-  background-color: rgb(240, 240, 240);
+  background-color:rgba(53, 52, 52, 0.412);
 }
 
 #black {
@@ -177,3 +183,5 @@ h1 {
   margin-bottom: 1rem;
 }
 </style>
+
+

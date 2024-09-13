@@ -1,12 +1,12 @@
 <template>
   <div>
     <!-- Button to trigger modal -->
-    <button type="button" class="btn" :data-bs-target="'#adminEditUser' + mech.mechanicalPartID" data-bs-toggle="modal">
+    <button type="button" class="btn" :data-bs-target="'#adminEditMech' + updateMech.mechanicalPartID" data-bs-toggle="modal">
       <i class="bi bi-pencil-square"></i>
     </button>
 
     <!-- Modal Structure -->
-    <div class="modal fade" :id="'adminEditUser' + mech.mechanicalPartID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
+    <div class="modal fade" :id="'adminEditMech' + updateMech.mechanicalPartID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editUserLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -18,10 +18,10 @@
             <form @submit.prevent="updateProductFx">
               <div class="container">
                 <!-- Form fields bound to updateMech data model -->
-                <input class="form-control m-2" type="text" placeholder="Enter ID" v-model="updateMech.mechanicalPartID" required>
+                <input class="form-control m-2" type="text" placeholder="ID" v-model="updateMech.mechanicalPartID" required>
                 <input class="form-control m-2" type="text" placeholder="Enter Name" v-model="updateMech.partName" required>
                 <input class="form-control m-2" type="text" placeholder="Enter Material" v-model="updateMech.material" required>
-                <input class="form-control m-2" type="number" placeholder="Enter Age" v-model="updateMech.engineType" required>
+                <input class="form-control m-2" type="test" placeholder="Enter engineType" v-model="updateMech.engineType" required>
                 <input class="form-control m-2" type="text" placeholder="Enter Car Make" v-model="updateMech.compatibleCarMake" required>
                 <input class="form-control m-2" type="text" placeholder="Enter Profile Image URL" v-model="updateMech.imageURL" required>
                 <input class="form-control m-2" type="text" placeholder="Enter Price" v-model="updateMech.price" required>
@@ -50,7 +50,7 @@ export default {
   data() {
     return {
       updateMech: {
-        mechanicalPartID: this.mech?.mechanicalPartID || '',
+        mechanicalPartID: this.mech?.mechanicalPartID ,
         partName: this.mech?.partName || '',
         material: this.mech?.material || '',
         engineType: this.mech?.engineType || '',
@@ -67,7 +67,7 @@ export default {
   methods: {
     async updateProductFx() {
       try {
-        await this.$store.dispatch('updateUser', this.updateMech);
+        await this.$store.dispatch('updateMech', this.updateMech);
         this.$emit('update');
         Swal.fire({
           title: "Good job!",

@@ -1,14 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '@/views/AboutView.vue'
-import ProductsView from '@/views/ProductsView.vue'
 import CartSecond from '@/views/CartSecond.vue'
 import ContactView from '@/views/ContactView.vue'
 import AdminView from '@/views/AdminView.vue'
 import MechanicalView from '@/views/MechanicalView.vue'
-import InteriorExteriorView from '@/views/InteriorExteriorView.vue'
 import ProductSingleView from '@/views/MechanicalSingle.vue'
-import IntExtSingle from '@/views/IntExtSingle.vue'
 import LoginView from '@/views/LoginView.vue'
 import UserDetails from '@/views/UserDetails.vue'
 import { useCookies } from 'vue3-cookies'
@@ -27,7 +24,7 @@ const routes = [
   {
     path: '/products',
     name: 'products',
-    component: ProductsView
+    component: MechanicalView
   },
   {
     path: '/cart',
@@ -50,21 +47,10 @@ const routes = [
     component:MechanicalView
   },
   {
-    path:'/interiorExterior',
-    name:'interiorExterior',
-    component:InteriorExteriorView
-  },
-  {
     path: '/singleView/:id',
     name: 'singleView',
     component:ProductSingleView,
     props: true
-  },
-  {
-    path:'/singleViewIntExt/:id',
-    name:'singleViewIntExt',
-    component: IntExtSingle,
-    props:true
   },
   {
     path: '/login',

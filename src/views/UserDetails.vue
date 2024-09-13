@@ -1,39 +1,39 @@
 <template>
   <div>
+    <!-- Spinner Component displayed when user data is not available -->
     <div v-if="!user">
       <SpinnerComp />
     </div>
+
+    <!-- User Profile Section -->
     <div v-else>
-      <div class="row my-2">
-        <div class="row center">
-          <div class="card mt-5">
-            <div class="img">
-              <img :src="user.userProfile" class="card-img-top" />
+      <div class="container my-5">
+        <div class="row justify-content-center">
+          <div class="card profile-card">
+            <div class="card-img-wrapper">
+              <img :src="user.userProfile" class="card-img-top profile-img" />
             </div>
             <div class="card-body">
-              <div class="Username">
-                <h5 class="card-title">{{ user.firstName }}</h5>
-                <h5 class="card-title">{{ user.lastName }}</h5>
-                <h4>{{ user.emailAdd }}</h4>
-              </div>
-              <div>
-                <p class="card-text">{{ user.userRole }}</p>
-              </div>
+              <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+              <h4 class="card-email">{{ user.emailAdd }}</h4>
+              <p class="card-text">{{ user.userRole }}</p>
             </div>
           </div>
         </div>
-      </div>
-      <div class="row d-flex justify-content-center">
-        <router-link to="/logout">
-          <button id="log-in-button" class="mt-3" @click="logOutUser">
-            Log Out
+        <div class="row justify-content-center mt-4">
+          <router-link to="/logout">
+            <button id="log-in-button" class="btn btn-danger" @click="logOutUser">
+              Log Out
+            </button>
+          </router-link>
+          <button class="btn btn-primary ms-3" @click="showModal = true">
+            Update My Information
           </button>
-        </router-link>
-        <button class="btn btn-primary" @click="showModal = true">
-          Update My Information
-        </button>
+        </div>
       </div>
     </div>
+
+    <!-- Update User Modal -->
     <updateUser 
       :user="user" 
       :isVisible="showModal" 
@@ -42,6 +42,7 @@
     />
   </div>
 </template>
+
 
 <script>
 import SpinnerComp from "@/components/SpinnerComp.vue";
@@ -102,11 +103,77 @@ export default {
 </script>
 
 <style scoped>
-.img {
-  width: 300px;
-  height: 400px;
+/* Container to center the profile card */
+.container {
+  max-width: 1200px;
+  margin: auto;
 }
-.img > img {
-  object-fit: contain;
+
+/* Styling for the card */
+.profile-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Styling for the image container */
+.card-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+}
+
+/* Profile image styling */
+.profile-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Styling for the card body */
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Styling for title and email */
+.card-title {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.card-email {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Button styling */
+#log-in-button {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+#log-in-button:hover {
+  background-color: #c9302c;
+}
+
+/* Additional button styling */
+.btn-primary {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
+.btn-primary:hover {
+  background-color: #025aa5;
+  border-color: #024a87;
 }
 </style>

@@ -89,7 +89,7 @@
               <div class="center-content">
                 <p class="mx-3">Add Product</p>
                 <!-- add -->
-                <addProduct :product="product" />
+                <addProduct :mech="mech" />
               </div>
             </td>
           </tr>
@@ -125,8 +125,8 @@
             <td
               class="d-flex justify-content-between align-items-center flex-column flex-md-row gap-2"
             >
-              <!-- update -->ProductModal
-              <ProductModal :product="product" />
+              <!-- update -->
+              <ProductModal :mech="mech" />
               <!-- delete -->
               <button
                 class="btn btn-outline-danger deleteButton"

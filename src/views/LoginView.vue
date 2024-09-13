@@ -126,7 +126,6 @@
 export default {
   data() {
     return {
-      // userID, firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile
       firstName: "",
       lastName: "",
       userAge: null,
@@ -149,7 +148,6 @@ export default {
         emailAdd: this.login_emailAdd,
         userPass: this.login_userPass,
       });
-      //   location.reload()
     },
   },
 };

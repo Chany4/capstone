@@ -74,22 +74,20 @@ console.log(isUser);
     font-size: 1rem;
     color: #333;
     padding: 15px 20px;
-    transition: color 0.3s ease, transform 0.3s ease;
   }
   
   .navbar-nav .nav-link:hover,
   .navbar-nav .nav-link.active-link {
     color: black; /* Highlight color for active  */
     font: bolder;
-    transform: scale(1.1);
   }
   
   .navbar-nav .nav-link.active-link {
     font-weight: bold;
   }
   
-  .navbar-toggler {
+  /* .navbar-toggler {
     border: none;
-  }
+  } */
   </style>
   

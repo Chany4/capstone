@@ -2,19 +2,19 @@
     <div class="footer-container">
       <div class="footerTop">
         <div class="row py-4 px-4">
-          <div class="col col-4">
+          <div class="col col-lg-4">
             <h4 id="h4-foooter">About BigTime</h4>
             <p id="p"><router-link class="nav-link" to="/about">Brand Story</router-link></p><br>
             <p id="p"><router-link class="nav-link" to="/home">Discounts</router-link></p>
           </div>
-          <div class="col col-4">
+          <div class="col col-lg-4">
             <h4 id="h4-foooter">Customer Service</h4><br>
             <p id="p"><router-link class="nav-link" to="/about">FAQ</router-link></p><br>
             <p id="p"><router-link class="nav-link" to="/home">Promotions</router-link></p><br>
             <p id="p"><router-link class="nav-link" to="/contact">Contact Us</router-link></p><br>
             <p id="p"><router-link class="nav-link" to="/home">Membership</router-link></p><br>
           </div>
-          <div class="col col-4">
+          <div class="col col-lg-4">
             <h4 id="h4-foooter">News</h4><br>
             <p id="p"><router-link class="nav-link" to="/home">News</router-link></p><br>
             <p id="p"><router-link class="nav-link" to="/home">Partnerships</router-link></p><br>

@@ -22,7 +22,6 @@
 export default {};
 </script>
 <style scoped>
-/* From Uiverse.io by gharsh11032000 */
 .card {
   position: relative;
   width: 100%;

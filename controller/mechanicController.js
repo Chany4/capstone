@@ -80,62 +80,26 @@ const addMechanic = async (req, res) => {
 };
 
 
-// const updateMechanic = async (req,res) => {
-//     let {partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description} = req.body
-//     let mechanics = await updateMechanicDb(req.params.id)
+const updateMechanic = async (req,res) => {
+    let {partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description} = req.body
+    let mechanics = await updateMechanicDb(req.params.id)
 
-//     partName ? partName = partName : partName = mechanics.partName
-//     material ? material = material : material = mechanics.material
-//     engineType ? engineType = engineType : engineType = mechanics.engineType
-//     compatibleCarMake ? compatibleCarMake = compatibleCarMake : compatibleCarMake = mechanics.compatibleCarMake
-//     imageURL ? imageURL = imageURL : imageURL = mechanics.fav_imageURL
-//     price ? price = price : price = mechanics.price
-//     category ? category = category : category = mechanics.category
-//     stockQuantity ? stockQuantity = stockQuantity : stockQuantity = mechanics.stockQuantity
-//     warrantyPeriod ? warrantyPeriod = warrantyPeriod : warrantyPeriod = mechanics.warrantyPeriod
-//     description ? description = description : description = mechanics.description
+    partName ? partName = partName : partName = mechanics.partName
+    material ? material = material : material = mechanics.material
+    engineType ? engineType = engineType : engineType = mechanics.engineType
+    compatibleCarMake ? compatibleCarMake = compatibleCarMake : compatibleCarMake = mechanics.compatibleCarMake
+    imageURL ? imageURL = imageURL : imageURL = mechanics.fav_imageURL
+    price ? price = price : price = mechanics.price
+    category ? category = category : category = mechanics.category
+    stockQuantity ? stockQuantity = stockQuantity : stockQuantity = mechanics.stockQuantity
+    warrantyPeriod ? warrantyPeriod = warrantyPeriod : warrantyPeriod = mechanics.warrantyPeriod
+    description ? description = description : description = mechanics.description
 
-//     await updateMechanicDb(partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description)
-//     res.send('User info was successfully updated')
-// }
+    await updateMechanicDb(partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description)
+    res.send('Mech info was successfully updated')
+}
 
-const updateMechanic = async (req, res) => {
-    try {
-        // Extract fields from request body
-        const { partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description } = req.body;
 
-        // Retrieve existing mechanic details from the database
-        const existingMechanic = await updateMechanicDb(req.params.id);
-
-        if (!existingMechanic) {
-            return res.status(404).json({ message: 'Mechanic not found' });  // Not found, status code 404
-        }
-
-        // Use existing values if new values are not provided
-        const updatedMechanic = {
-            partName: partName ?? existingMechanic.partName,
-            material: material ?? existingMechanic.material,
-            engineType: engineType ?? existingMechanic.engineType,
-            compatibleCarMake: compatibleCarMake ?? existingMechanic.compatibleCarMake,
-            imageURL: imageURL ?? existingMechanic.imageURL,
-            price: price ?? existingMechanic.price,
-            category: category ?? existingMechanic.category,
-            stockQuantity: stockQuantity ?? existingMechanic.stockQuantity,
-            warrantyPeriod: warrantyPeriod ?? existingMechanic.warrantyPeriod,
-            description: description ?? existingMechanic.description
-        };
-
-        // Update the mechanic in the database
-        await updateMechanicDb(req.params.id, updatedMechanic);
-
-        // Respond with success message
-        res.status(200).send('Mechanic info was successfully updated');  // Success, status code 200
-    } catch (error) {
-        // Handle unexpected errors
-        console.error('Error updating mechanic:', error);  // Log the error for debugging purposes
-        res.status(500).json({ message: 'Internal Server Error' });  // Internal server error, status code 500
-    }
-};
 
 
 // const deleteMechanic = async (req, res) => {

@@ -57,12 +57,12 @@ const fetchUser = async (req, res) => {
 };
 
 
-// const addUser = async (req, res) => {
-//     let {firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile} = req.body
-//     let hashedP = await hash(userPass, 10)
-//     await addUserDB(firstName, lastName, userAge, Gender, userRole, emailAdd, hashedP, userProfile)
-//     res.send('Data was successfully inserted')
-// }
+const addUser = async (req, res) => {
+    let {firstName, lastName, userAge, Gender, userRole, emailAdd, userPass, userProfile} = req.body
+    let hashedP = await hash(userPass, 10)
+    await addUserDB(firstName, lastName, userAge, Gender, userRole, emailAdd, hashedP, userProfile)
+    res.send('Data was successfully inserted')
+}
 
 
 

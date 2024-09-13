@@ -1,20 +1,36 @@
 import { pool } from "../config/config.js";
 
 const getMechanicsDb = async () => {
-    let [data] = await pool.query(`SELECT * FROM mechanicalParts `)
+    try{
+      let [data] = await pool.query(`SELECT * FROM mechanicalParts `)
     return data;
+    }catch(err){
+      console.log(err);
+      throw err
+    }
 }
 
 const getMechanicDb = async (id) => {
-    let [[data]] =  await pool.query(`SELECT * FROM mechanicalParts WHERE mechanicalPartID = ?`,[id]);
+    try{
+      let [[data]] =  await pool.query(`SELECT * FROM mechanicalParts WHERE mechanicalPartID = ?`,[id]);
     return data;
+    }catch(err){
+      console.log(err);
+      throw err;
+      
+    }
 }
 
 
 const addMechanicDb = async (partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description) => {
-    let [data] = await pool.query(`INSERT INTO mechanicalParts (partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description) VALUES(?,?,?,?,?,?,?,?,?,?) `,
+    try{
+      let [data] = await pool.query(`INSERT INTO mechanicalParts (partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description) VALUES(?,?,?,?,?,?,?,?,?,?) `,
     [partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description]  
     );
+    }catch(error){
+      console.log('Error adding to database:' ,error);
+      throw error; 
+    }
 }
 
 const updateMechanicDb = async (partName, material, engineType, compatibleCarMake, imageURL, price, category, stockQuantity, warrantyPeriod, description, id) => {
@@ -35,17 +51,16 @@ const updateMechanicDb = async (partName, material, engineType, compatibleCarMak
   
 
 const deleteMechanicDb = async(id) => {
-    let [data] = await pool.query(
+    try{
+      let [data] = await pool.query(
         `DELETE FROM mechanicalParts WHERE mechanicalPartID = ?`, [id] 
     )
+    }catch{err}{
+      console.log(err);
+      throw err;
+      
+    }
 };
 
 
-
-
-const addToCartDb = async (fruit_ID, user_ID) => {
-    await pool.query (`INSERT INTO cart (fruit_ID, user_ID) VALUES(?,?) `,
-    [fruit_ID, user_ID] )
-}
-
-export{getMechanicsDb,getMechanicDb,addMechanicDb,deleteMechanicDb,updateMechanicDb,addToCartDb}
+export{getMechanicsDb,getMechanicDb,addMechanicDb,deleteMechanicDb,updateMechanicDb}

@@ -51,7 +51,7 @@
                 <p>Price: {{ mech.price }}</p>
               </template>
               <template #cardButton>
-                <div class="d-flex justify-content-start" v-if="isLeigit">
+                <div class="d-flex justify-content-start" v-if="isLegit">
                   <button @click="addToCart(mech)" id="black">Purchase</button>
                 </div>
                 <div v-else class="zero"></div>

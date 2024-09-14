@@ -159,8 +159,11 @@ span{
   left: 0px;
 }
 .productDisplay2{
-  background-image: url('https://chany4.github.io/capstone-images/products/tyres_and_rims/NISMO-LM-GT2-removebg-preview.png');
+  background-image: url('https://chany4.github.io/capstone-images/products/electrical/ignition_system/injector_dynamics_honda.png');
   background-position: center;
+  background-size: cover; /* This will make sure the image covers the entire element */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  
 
 }
 
@@ -174,9 +177,10 @@ span{
   left: 100px;
 }
 .productDisplay3{
-  background-image: url('https://chany4.github.io/capstone-images/products/tyres_and_rims/NISMO-LM-GT2-removebg-preview.png');
+  background-image: url('https://chany4.github.io/capstone-images/products/tools/tool%201.png');
   background-position: center;
-
+  background-size: cover; /* This will make sure the image covers the entire element */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
 </style>

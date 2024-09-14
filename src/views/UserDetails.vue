@@ -40,6 +40,15 @@
       @update="fetchUserInfoFromCookies"
       @close="showModal = false"
     />
+
+    <button
+                class="btn btn-outline-danger deleteButton"
+                @click="(event) => deleteUser(user.userID)"
+              >
+                Delete Account
+              </button>
+
+              <p>Pleas logout after your account has been deleted</p>
   </div>
 </template>
 
@@ -77,6 +86,9 @@ export default {
         console.error(e.message);
         this.loading = false;
       }
+    },
+    deleteUser(userID) {
+      this.$store.dispatch("deleteUser", userID);
     },
     fetchUserInfoFromCookies() {
       const storedUserInfo = cookies.get('userInfo');

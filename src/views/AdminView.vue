@@ -53,7 +53,7 @@
             <td>{{ user.Gender }}</td>
             <td>{{ user.userRole }}</td>
             <td>{{ user.emailAdd }}</td>
-            <td><img :src="user.imageURL" alt="User Image" /></td>
+            <td><img :src="user.userProfile" alt="User Image" class="image"></td>
             <td
               class="d-flex justify-content-between align-items-center flex-column flex-md-row gap-2"
             >
@@ -191,6 +191,10 @@ export default {
 };
 </script>
 <style scoped>
+.image{
+  width: 20px;
+  height: auto;
+}
 h2 {
   color: #4e96d3;
 }
@@ -234,7 +238,6 @@ th,
 td {
   text-align: center;
   vertical-align: middle;
-  padding: 12px;
 }
 
 .img-fluid {

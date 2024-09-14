@@ -88,7 +88,7 @@
         </label>
 
         <button class="submit my-3" @click="addUser">Submit</button>
-        <p class="signin">Already have an acount ? <a @click="signUp = !signUp">Signin</a></p>
+        <p class="signin">Already have an acount ? <a @click="signUp = !signUp"><strong>Signin</strong></a></p>
       </div>
 
       <div class="login" v-else>
@@ -117,7 +117,7 @@
 
         <button class="submit my-3" @click="loginUser">Login</button>
         
-        <p class="signin">Don't have an account? <a @click="signUp = !signUp">Sign Up</a></p>
+        <p class="signin">Don't have an account? <a @click="signUp = !signUp"><strong>Sign Up</strong></a></p>
       </div>
     </div>
   </div>
@@ -153,6 +153,9 @@ export default {
 };
 </script>
 <style scoped>
+strong{
+  color: #00bfff;
+}
 .sign-up {
   display: flex;
   flex-direction: column;
